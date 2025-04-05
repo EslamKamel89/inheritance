@@ -27,10 +27,10 @@ class Clr {
 }
 
 final lightClr = Clr(
-  primaryColor: Color(0xFF4169E1),
-  primaryColorLight: Color(0xFF6A91F0),
-  primaryColorDark: Color(0xFF2747A7),
-  secondaryHeaderColor: Color(0xFFE0FFFF),
+  primaryColor: Color(0xFF00732e),
+  primaryColorLight: Color(0xFF33a35c),
+  primaryColorDark: Color(0xFF004d1f),
+  secondaryHeaderColor: Color(0xFFff6f61),
   scaffoldBackgroundColor: Color(0xFFF5F5F5),
   dialogBackgroundColor: Color(0xFFE0FFFF),
   cardColor: Color(0xFFFFFFFF),
