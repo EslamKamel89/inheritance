@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:inheritance/core/router/app_routes_names.dart';
 import 'package:inheritance/core/router/middleware.dart';
-import 'package:inheritance/core/widgets/ui_components_screen.dart';
+import 'package:inheritance/features/inheritance/presentation/screens/InheritanceScreen.dart';
 import 'package:inheritance/features/splash_screen/splash_screen.dart';
 
 class AppRouter {
@@ -13,9 +13,9 @@ class AppRouter {
     switch (routeName) {
       case AppRoutesNames.splashScreen:
         return CustomPageRoute(builder: (context) => const SplashScreen(), settings: routeSettings);
-      case AppRoutesNames.uiComponentScreen:
+      case AppRoutesNames.inheritanceScreen:
         return CustomPageRoute(
-          builder: (context) => const UiComponentScreen(),
+          builder: (context) => const InheritanceScreen(),
           settings: routeSettings,
         );
 

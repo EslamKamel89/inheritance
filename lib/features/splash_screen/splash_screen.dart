@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:inheritance/core/extensions/context-extensions.dart';
+import 'package:inheritance/core/router/app_routes_names.dart';
 import 'package:inheritance/utils/assets/assets.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -15,18 +16,13 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    // Future.delayed(const Duration(seconds: 1), () {
-    //   Navigator.of(
-    //     context,
-    //   ).pushNamedAndRemoveUntil(AppRoutesNames.uiComponentScreen, (_) => false);
-    // });
+    Future.delayed(3750.ms, () {
+      Navigator.of(context).pushNamedAndRemoveUntil(AppRoutesNames.inheritanceScreen, (_) => false);
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    const duration = Duration(milliseconds: 1500);
-    const bounces = [Offset(0, -20), Offset(0, 10), Offset(0, -5), Offset(0, 0)];
-
     return Container(
       color: Colors.black,
       child: Scaffold(
