@@ -8,4 +8,6 @@ class AssetsData {
   static const String onBoarding_6 = "$_relativePath/onboarding_6.png";
   static const String logo = "$_relativePath/logo.png";
   static const String background = "$_relativePath/template.png";
+  static const String star = "$_relativePath/star.png";
+  static const String star2 = "$_relativePath/star2.png";
 }
