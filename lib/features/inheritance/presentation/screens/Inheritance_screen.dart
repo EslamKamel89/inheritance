@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:inheritance/core/extensions/context-extensions.dart';
 import 'package:inheritance/core/widgets/main_scaffold.dart';
 import 'package:inheritance/features/inheritance/cubits/inheritance/inheritance_cubit.dart';
+import 'package:inheritance/features/inheritance/enums/inheritance.dart';
+import 'package:inheritance/features/inheritance/presentation/widgets/total_amount_widget.dart';
 import 'package:inheritance/utils/styles/styles.dart';
 
 class InheritanceScreen extends StatefulWidget {
@@ -15,69 +16,31 @@ class InheritanceScreen extends StatefulWidget {
 class _InheritanceScreenState extends State<InheritanceScreen> {
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<InheritanceCubit, InheritanceState>(
-      listener: (context, state) {},
-      builder: (context, state) {
-        return MainScaffold(
-          appBarTitle: "Bismillah, Let's Begin",
-          child: SingleChildScrollView(child: Column(children: [
-            
-          ],)),
-        );
-      },
+    return MainScaffold(
+      titleWidget: AppBarTitle(),
+      child: SingleChildScrollView(child: Column(children: [TotalAmountWidget()])),
     );
   }
 }
 
-class InheritanceTextInputWidget extends StatefulWidget {
-  const InheritanceTextInputWidget({
-    super.key,
-    required this.image,
-    this.label,
-    required this.updateInput,
-    this.handleSubmit,
-    this.handleBack,
-    this.backTitle,
-    this.nextTitle,
-  });
-  final String? image;
-  final String? label;
-  final void Function(String val) updateInput;
-  final void Function()? handleSubmit;
-  final void Function()? handleBack;
-  final String? backTitle;
-  final String? nextTitle;
+class AppBarTitle extends StatefulWidget {
+  const AppBarTitle({super.key});
+
   @override
-  State<InheritanceTextInputWidget> createState() => _InheritanceTextInputWidgetState();
+  State<AppBarTitle> createState() => _AppBarTitleState();
 }
 
-class _InheritanceTextInputWidgetState extends State<InheritanceTextInputWidget> {
+class _AppBarTitleState extends State<AppBarTitle> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        if (widget.label != null) txt(widget.label!, e: St.bold20),
-        TextFormField(),
-        Row(
-          children: [
-            if (widget.handleBack != null)
-              InkWell(
-                onTap: () {},
-                child: Container(
-                  decoration: BoxDecoration(color: context.primaryColor),
-                  child: txt('Back'),
-                ),
-              ),
-            if (widget.handleSubmit != null)
-              InkWell(
-                child: Container(
-                  decoration: BoxDecoration(color: context.primaryColor),
-                  child: txt('Next'),
-                ),
-              ),
-          ],
-        ),
-      ],
-    );
+    final controller = context.watch<InheritanceCubit>();
+    String title = '';
+    switch (controller.state.currentStep) {
+      case InheritanceEnum.totalAmount:
+        title = "Bismillah, Let's Begin";
+        break;
+      default:
+    }
+    return txt(title);
   }
 }

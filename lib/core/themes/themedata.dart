@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:inheritance/core/themes/design_system.dart';
 
 class Clr {
@@ -67,11 +66,11 @@ final ThemeData lightTheme = ThemeData(
   //   headline4: TextStyle(fontSize: 34, fontWeight: FontWeight.normal, color: Colors.black),
   //   headline5: TextStyle(fontSize: 24, fontWeight: FontWeight.normal, color: Colors.black),
   //   headline6: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
-  //   subtitle1: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.normal, color: Colors.black),
-  //   subtitle2: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold, color: Colors.black),
-  //   bodyText1: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.normal, color: Colors.black87),
-  //   bodyText2: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.normal, color: Colors.black87),
-  //   button: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold, color: Colors.white),
+  //   subtitle1: TextStyle(fontSize: 16 , fontWeight: FontWeight.normal, color: Colors.black),
+  //   subtitle2: TextStyle(fontSize: 14 , fontWeight: FontWeight.bold, color: Colors.black),
+  //   bodyText1: TextStyle(fontSize: 16 , fontWeight: FontWeight.normal, color: Colors.black87),
+  //   bodyText2: TextStyle(fontSize: 14 , fontWeight: FontWeight.normal, color: Colors.black87),
+  //   button: TextStyle(fontSize: 14 , fontWeight: FontWeight.bold, color: Colors.white),
   //   caption: TextStyle(fontSize: 12, fontWeight: FontWeight.normal, color: Colors.black54),
   //   overline: TextStyle(fontSize: 10, fontWeight: FontWeight.normal, color: Colors.black54),
   // ),
@@ -83,20 +82,20 @@ final ThemeData lightTheme = ThemeData(
       foregroundColor: Colors.white, // Button text color
       shadowColor: lightClr.primaryColorDark, // Button shadow color
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      textStyle: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+      textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
     ),
   ),
   outlinedButtonTheme: OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
       foregroundColor: lightClr.primaryColor, // Button text color
       side: BorderSide(color: lightClr.primaryColor), // Border color
-      textStyle: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+      textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
     ),
   ),
   textButtonTheme: TextButtonThemeData(
     style: TextButton.styleFrom(
       foregroundColor: lightClr.primaryColor, // Text color
-      textStyle: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+      textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
     ),
   ),
 
@@ -131,8 +130,8 @@ final ThemeData lightTheme = ThemeData(
       borderRadius: BorderRadius.all(Radius.circular(DesSys.borderRadiusMd)),
       borderSide: BorderSide(color: lightClr.primaryColorDark),
     ),
-    labelStyle: TextStyle(color: Colors.black54, fontSize: 16.sp),
-    hintStyle: TextStyle(color: Colors.black38, fontSize: 14.sp),
+    labelStyle: TextStyle(color: Colors.black54, fontSize: 16),
+    hintStyle: TextStyle(color: Colors.black38, fontSize: 14),
   ),
 
   // Divider
@@ -149,7 +148,7 @@ final ThemeData lightTheme = ThemeData(
   // SnackBar
   snackBarTheme: SnackBarThemeData(
     backgroundColor: lightClr.primaryColor,
-    contentTextStyle: TextStyle(color: Colors.white, fontSize: 16.sp),
+    contentTextStyle: TextStyle(color: Colors.white, fontSize: 16),
   ),
 
   // bottom navigatio bar theme
@@ -184,11 +183,11 @@ final ThemeData darkTheme = ThemeData(
   //   headline4: TextStyle(fontSize: 34, fontWeight: FontWeight.normal, color: Colors.white),
   //   headline5: TextStyle(fontSize: 24, fontWeight: FontWeight.normal, color: Colors.white),
   //   headline6: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
-  //   subtitle1: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.normal, color: Colors.white70),
-  //   subtitle2: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold, color: Colors.white70),
-  //   bodyText1: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.normal, color: Colors.white70),
-  //   bodyText2: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.normal, color: Colors.white70),
-  //   button: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold, color: Colors.white),
+  //   subtitle1: TextStyle(fontSize: 16 , fontWeight: FontWeight.normal, color: Colors.white70),
+  //   subtitle2: TextStyle(fontSize: 14 , fontWeight: FontWeight.bold, color: Colors.white70),
+  //   bodyText1: TextStyle(fontSize: 16 , fontWeight: FontWeight.normal, color: Colors.white70),
+  //   bodyText2: TextStyle(fontSize: 14 , fontWeight: FontWeight.normal, color: Colors.white70),
+  //   button: TextStyle(fontSize: 14 , fontWeight: FontWeight.bold, color: Colors.white),
   //   caption: TextStyle(fontSize: 12, fontWeight: FontWeight.normal, color: Colors.white54),
   //   overline: TextStyle(fontSize: 10, fontWeight: FontWeight.normal, color: Colors.white54),
   // ),
@@ -200,20 +199,20 @@ final ThemeData darkTheme = ThemeData(
       foregroundColor: Colors.white, // Button text color
       shadowColor: darkClr.primaryColorDark, // Button shadow color
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-      textStyle: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+      textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
     ),
   ),
   outlinedButtonTheme: OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
       foregroundColor: darkClr.primaryColor, // Button text color
       side: BorderSide(color: darkClr.primaryColor), // Border color
-      textStyle: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+      textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
     ),
   ),
   textButtonTheme: TextButtonThemeData(
     style: TextButton.styleFrom(
       foregroundColor: darkClr.primaryColor, // Text color
-      textStyle: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
+      textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
     ),
   ),
 
@@ -248,8 +247,8 @@ final ThemeData darkTheme = ThemeData(
       borderRadius: BorderRadius.all(Radius.circular(DesSys.borderRadiusMd)),
       borderSide: BorderSide(color: darkClr.primaryColorDark),
     ),
-    labelStyle: TextStyle(color: Colors.white70, fontSize: 16.sp),
-    hintStyle: TextStyle(color: Colors.white54, fontSize: 14.sp),
+    labelStyle: TextStyle(color: Colors.white70, fontSize: 16),
+    hintStyle: TextStyle(color: Colors.white54, fontSize: 14),
   ),
 
   // Divider
@@ -266,7 +265,7 @@ final ThemeData darkTheme = ThemeData(
   // SnackBar
   snackBarTheme: SnackBarThemeData(
     backgroundColor: darkClr.primaryColor,
-    contentTextStyle: TextStyle(color: Colors.white, fontSize: 16.sp),
+    contentTextStyle: TextStyle(color: Colors.white, fontSize: 16),
   ),
   // bottom navigatio bar theme
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
