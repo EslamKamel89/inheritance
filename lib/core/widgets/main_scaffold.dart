@@ -13,6 +13,7 @@ class MainScaffold extends StatelessWidget {
     this.hideAppBar = false,
     this.floatingActionButton,
     this.titleWidget,
+    this.backgroundColor,
   });
   final String? appBarTitle;
   final Widget child;
@@ -22,11 +23,13 @@ class MainScaffold extends StatelessWidget {
   final bool? resizeToAvoidBottomInset;
   final bool hideAppBar;
   final Widget? titleWidget;
+  final Color? backgroundColor;
   @override
   Widget build(BuildContext context) {
     // final bool isDark = context.watch<ThemeCubit>().isDarkMode();
     return SafeArea(
       child: Scaffold(
+        backgroundColor: backgroundColor,
         appBar: AppBar(
           backgroundColor: hideAppBar ? Colors.transparent : null,
           title: titleWidget ?? Text(appBarTitle ?? ''),
