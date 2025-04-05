@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:inheritance/core/router/app_routes_names.dart';
 import 'package:inheritance/core/router/middleware.dart';
-import 'package:inheritance/features/inheritance/presentation/screens/InheritanceScreen.dart';
+import 'package:inheritance/features/inheritance/presentation/screens/Inheritance_screen.dart';
 import 'package:inheritance/features/splash_screen/splash_screen.dart';
 
 class AppRouter {

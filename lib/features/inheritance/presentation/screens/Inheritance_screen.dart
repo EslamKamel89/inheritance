@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inheritance/core/widgets/main_scaffold.dart';
 
 class InheritanceScreen extends StatefulWidget {
   const InheritanceScreen({super.key});
@@ -10,6 +11,6 @@ class InheritanceScreen extends StatefulWidget {
 class _InheritanceScreenState extends State<InheritanceScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return MainScaffold(appBarTitle: "Bismillah, Let's Begin", child: SizedBox());
   }
 }
