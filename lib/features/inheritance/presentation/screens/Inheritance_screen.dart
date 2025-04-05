@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:inheritance/core/extensions/context-extensions.dart';
 import 'package:inheritance/core/widgets/main_scaffold.dart';
+import 'package:inheritance/features/inheritance/cubits/inheritance/inheritance_cubit.dart';
 import 'package:inheritance/utils/styles/styles.dart';
 
 class InheritanceScreen extends StatefulWidget {
@@ -13,11 +15,16 @@ class InheritanceScreen extends StatefulWidget {
 class _InheritanceScreenState extends State<InheritanceScreen> {
   @override
   Widget build(BuildContext context) {
-    return MainScaffold(
-      appBarTitle: "Bismillah, Let's Begin",
-      child: SingleChildScrollView(child: Column(children: [
-        
-      ],)),
+    return BlocConsumer<InheritanceCubit, InheritanceState>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        return MainScaffold(
+          appBarTitle: "Bismillah, Let's Begin",
+          child: SingleChildScrollView(child: Column(children: [
+            
+          ],)),
+        );
+      },
     );
   }
 }

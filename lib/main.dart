@@ -7,6 +7,7 @@ import 'package:inheritance/core/router/app_router.dart';
 import 'package:inheritance/core/router/app_routes_names.dart';
 import 'package:inheritance/core/service_locator/service_locator.dart';
 import 'package:inheritance/core/themes/theme_cubit.dart';
+import 'package:inheritance/features/inheritance/cubits/inheritance/inheritance_cubit.dart';
 import 'package:intl/intl_standalone.dart';
 
 void main() async {
@@ -35,7 +36,10 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       child: MultiBlocProvider(
-        providers: [BlocProvider(create: (_) => ThemeCubit())],
+        providers: [
+          BlocProvider(create: (_) => ThemeCubit()),
+          BlocProvider(create: (_) => InheritanceCubit()),
+        ],
         child: Builder(
           builder: (context) {
             final themeCubit = context.watch<ThemeCubit>();
