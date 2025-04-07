@@ -20,6 +20,9 @@ class _AppBarTitleState extends State<AppBarTitle> {
       case InheritanceEnum.totalAmount:
         title = "Bismillah, Let's Begin";
         break;
+      case InheritanceEnum.isWasiyat:
+        title = "Any will written?";
+        break;
       default:
     }
     return txt(title);

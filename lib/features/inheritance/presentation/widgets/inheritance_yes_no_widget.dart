@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inheritance/core/widgets/sizer.dart';
+import 'package:inheritance/features/inheritance/presentation/widgets/custom_image.dart';
 import 'package:inheritance/utils/styles/styles.dart';
 
 class InheritanceYesNoWidget extends StatefulWidget {
@@ -31,34 +32,42 @@ class _InheritanceYesNoWidgetState extends State<InheritanceYesNoWidget> {
     return Column(
       children: [
         Sizer(),
-        if (widget.image != null)
-          Container(margin: EdgeInsets.only(bottom: 10), child: Image.asset(widget.image!)),
+        if (widget.image != null) CustomImage(image: widget.image!),
+        Sizer(),
         if (widget.label != null) txt(widget.label!, e: St.bold20),
         Sizer(),
-        ListTile(
-          title: Text('NO'),
-          leading: Radio<bool>(
-            value: false,
-            groupValue: selectedValue,
-            onChanged: (value) {
-              setState(() {
-                selectedValue = value ?? false;
-              });
-            },
-          ),
-        ),
-        // Second radio button
-        ListTile(
-          title: Text('YES'),
-          leading: Radio<bool>(
-            value: false,
-            groupValue: selectedValue,
-            onChanged: (value) {
-              setState(() {
-                selectedValue = value ?? false;
-              });
-            },
-          ),
+        Row(
+          children: [
+            Expanded(
+              child: ListTile(
+                title: Text('NO'),
+                leading: Radio<bool>(
+                  value: false,
+                  groupValue: selectedValue,
+                  onChanged: (value) {
+                    setState(() {
+                      selectedValue = value ?? false;
+                    });
+                  },
+                ),
+              ),
+            ),
+            // Second radio button
+            Expanded(
+              child: ListTile(
+                title: Text('YES'),
+                leading: Radio<bool>(
+                  value: true,
+                  groupValue: selectedValue,
+                  onChanged: (value) {
+                    setState(() {
+                      selectedValue = value ?? false;
+                    });
+                  },
+                ),
+              ),
+            ),
+          ],
         ),
       ],
     );

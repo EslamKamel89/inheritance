@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:inheritance/core/extensions/context-extensions.dart';
 import 'package:inheritance/core/themes/themedata.dart';
 import 'package:inheritance/core/widgets/sizer.dart';
+import 'package:inheritance/features/inheritance/presentation/widgets/custom_image.dart';
 import 'package:inheritance/utils/styles/styles.dart';
 
 class InheritanceTextInputWidget extends StatefulWidget {
@@ -43,8 +44,7 @@ class _InheritanceTextInputWidgetState extends State<InheritanceTextInputWidget>
     return Column(
       children: [
         Sizer(),
-        if (widget.image != null)
-          Container(margin: EdgeInsets.only(bottom: 10), child: Image.asset(widget.image!)),
+        if (widget.image != null) CustomImage(image: widget.image!),
         if (widget.label != null) txt(widget.label!, e: St.bold20),
         Sizer(),
         TextFormField(
