@@ -15,16 +15,27 @@ class TotalAmountWidget extends StatefulWidget {
 class _TotalAmountWidgetState extends State<TotalAmountWidget> {
   @override
   Widget build(BuildContext context) {
-    final controller = context.watch<InheritanceCubit>();
-    return controller.state.currentStep == InheritanceEnum.totalAmount
-        ? InheritanceTextInputWidget(
-          image: AssetsData.logo,
-          handleSubmit: (String val) {},
-          handleBack: () {},
-          label: 'What is the total worth/amount left by deceased?',
-          placeholder: 'total worth/amount',
-          textInputType: TextInputType.number,
-        )
-        : SizedBox();
+    final controller = context.read<InheritanceCubit>();
+    return BlocBuilder<InheritanceCubit, InheritanceState>(
+      buildWhen: (previous, current) {
+        return previous.currentStep == InheritanceEnum.totalAmount ||
+            current.currentStep == InheritanceEnum.totalAmount;
+      },
+      builder: (context, state) {
+        return controller.state.currentStep == InheritanceEnum.totalAmount
+            ? InheritanceTextInputWidget(
+              image: AssetsData.logo,
+              handleSubmit: (String val) {
+                state.totalAmount = double.parse(val);
+                controller.changeStep(InheritanceEnum.isWasiyat);
+              },
+              // handleBack: () {},
+              label: 'What is the total worth/amount left by deceased?',
+              placeholder: 'total worth/amount',
+              textInputType: TextInputType.number,
+            )
+            : SizedBox();
+      },
+    );
   }
 }

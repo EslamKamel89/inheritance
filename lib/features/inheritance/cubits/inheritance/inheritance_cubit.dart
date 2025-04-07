@@ -7,4 +7,7 @@ part 'inheritance_state.dart';
 
 class InheritanceCubit extends Cubit<InheritanceState> {
   InheritanceCubit() : super(InheritanceState(currentStep: InheritanceEnum.totalAmount));
+  void changeStep(InheritanceEnum step) {
+    emit(state.copyWith(currentStep: step));
+  }
 }
