@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:inheritance/core/heleprs/snackbar.dart';
 import 'package:inheritance/features/inheritance/cubits/inheritance/inheritance_cubit.dart';
 import 'package:inheritance/features/inheritance/enums/inheritance.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/default_animation.dart';
@@ -28,6 +29,10 @@ class _TotalAmountWidgetState extends State<TotalAmountWidget> {
               child: InheritanceTextInputWidget(
                 image: AssetsData.logo,
                 handleSubmit: (String val) {
+                  if (val.isEmpty) {
+                    showSnackbar('Error', 'Please Enter Total Amount', true);
+                    return;
+                  }
                   state.totalAmount = double.parse(val);
                   controller.changeStep(InheritanceEnum.isWasiyat);
                 },

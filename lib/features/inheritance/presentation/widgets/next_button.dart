@@ -12,7 +12,7 @@ class CustomNextButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-        margin: EdgeInsets.only(right: 40),
+        // margin: EdgeInsets.only(right: 40),
         decoration: BoxDecoration(
           color: context.primaryColor,
           borderRadius: BorderRadius.circular(10),
