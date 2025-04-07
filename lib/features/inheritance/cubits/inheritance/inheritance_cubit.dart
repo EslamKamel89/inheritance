@@ -12,4 +12,8 @@ class InheritanceCubit extends Cubit<InheritanceState> {
     emit(state.copyWith(currentStep: step));
     pr(state, 'InheritanceState');
   }
+
+  void reset() {
+    emit(InheritanceState(currentStep: InheritanceEnum.totalAmount));
+  }
 }

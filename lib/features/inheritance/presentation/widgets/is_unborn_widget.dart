@@ -5,6 +5,7 @@ import 'package:inheritance/features/inheritance/cubits/inheritance/inheritance_
 import 'package:inheritance/features/inheritance/enums/inheritance.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/default_animation.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/inheritance_yes_no_widget.dart';
+import 'package:inheritance/features/inheritance/presentation/widgets/not_born_warning.dart';
 import 'package:inheritance/utils/assets/assets.dart';
 
 class IsUnbornWidget extends StatefulWidget {
@@ -15,6 +16,7 @@ class IsUnbornWidget extends StatefulWidget {
 }
 
 class _IsUnbornWidgetState extends State<IsUnbornWidget> {
+  bool showWarning = false;
   @override
   Widget build(BuildContext context) {
     final controller = context.read<InheritanceCubit>();
@@ -24,7 +26,7 @@ class _IsUnbornWidgetState extends State<IsUnbornWidget> {
             current.currentStep == InheritanceEnum.isUnborn;
       },
       builder: (context, state) {
-        return controller.state.currentStep == InheritanceEnum.isUnborn
+        return controller.state.currentStep == InheritanceEnum.isUnborn && !showWarning
             ? DefaultAnimation(
               child: InheritanceYesNoWidget(
                 image: AssetsData.unbornBaby,
@@ -33,6 +35,9 @@ class _IsUnbornWidgetState extends State<IsUnbornWidget> {
                   Future.delayed(500.ms, () {
                     if (answer) {
                       state.isUnborn = true;
+                      setState(() {
+                        showWarning = true;
+                      });
                       // controller.changeStep(InheritanceEnum.wasiyatAmount);
                     } else {
                       state.isUnborn = false;
@@ -47,6 +52,21 @@ class _IsUnbornWidgetState extends State<IsUnbornWidget> {
                   } else {
                     controller.changeStep(InheritanceEnum.isLoan);
                   }
+                },
+              ),
+            )
+            : controller.state.currentStep == InheritanceEnum.isUnborn && showWarning
+            ? DefaultAnimation(
+              child: NotBornWarningWidget(
+                handleBack: () {
+                  state.isUnborn = null;
+                  setState(() {
+                    showWarning = false;
+                  });
+                },
+                handleStartAgain: () {
+                  showWarning = false;
+                  controller.reset();
                 },
               ),
             )
