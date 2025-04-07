@@ -11,4 +11,5 @@ class AssetsData {
   static const String star = "$_relativePath/star.png";
   static const String star2 = "$_relativePath/star2.png";
   static const String contract = "$_relativePath/contract.png";
+  static const String loan = "$_relativePath/loan.png";
 }
