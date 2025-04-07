@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inheritance/core/widgets/sizer.dart';
+import 'package:inheritance/features/inheritance/presentation/widgets/back_button.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/custom_image.dart';
 import 'package:inheritance/utils/styles/styles.dart';
 
@@ -8,16 +9,14 @@ class InheritanceYesNoWidget extends StatefulWidget {
     super.key,
     required this.image,
     this.label,
-    this.handleYes,
-    this.handleNo,
+    this.handleAnswer,
     this.handleBack,
     this.backTitle,
     this.nextTitle,
   });
   final String? image;
   final String? label;
-  final void Function()? handleYes;
-  final void Function()? handleNo;
+  final void Function(bool)? handleAnswer;
   final void Function()? handleBack;
   final String? backTitle;
   final String? nextTitle;
@@ -48,6 +47,7 @@ class _InheritanceYesNoWidgetState extends State<InheritanceYesNoWidget> {
                     setState(() {
                       selectedValue = value ?? false;
                     });
+                    if (widget.handleAnswer != null) widget.handleAnswer!(false);
                   },
                 ),
               ),
@@ -63,12 +63,15 @@ class _InheritanceYesNoWidgetState extends State<InheritanceYesNoWidget> {
                     setState(() {
                       selectedValue = value ?? false;
                     });
+                    if (widget.handleAnswer != null) widget.handleAnswer!(true);
                   },
                 ),
               ),
             ),
           ],
         ),
+        if (widget.handleBack != null)
+          CustomBackButton(onTap: widget.handleBack, title: widget.backTitle),
       ],
     );
   }

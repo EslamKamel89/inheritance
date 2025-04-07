@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:inheritance/features/inheritance/cubits/inheritance/inheritance_cubit.dart';
 import 'package:inheritance/features/inheritance/enums/inheritance.dart';
@@ -26,6 +27,21 @@ class _IsWasiyatWidgetState extends State<IsWasiyatWidget> {
             ? InheritanceYesNoWidget(
               image: AssetsData.contract,
               label: "Is there any “WILL” or “Wasiyat” by the deceased?",
+              handleAnswer: (bool answer) {
+                Future.delayed(500.ms, () {
+                  if (answer) {
+                    state.isWasiyat = true;
+                    controller.changeStep(InheritanceEnum.wasiyatAmount);
+                  } else {
+                    state.isWasiyat = false;
+                    controller.changeStep(InheritanceEnum.isLoan);
+                  }
+                });
+              },
+              handleBack: () {
+                state.isWasiyat = null;
+                controller.changeStep(InheritanceEnum.totalAmount);
+              },
             )
             : SizedBox();
       },

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:inheritance/core/extensions/context-extensions.dart';
 import 'package:inheritance/core/themes/themedata.dart';
 import 'package:inheritance/core/widgets/sizer.dart';
+import 'package:inheritance/features/inheritance/presentation/widgets/back_button.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/custom_image.dart';
+import 'package:inheritance/features/inheritance/presentation/widgets/next_button.dart';
 import 'package:inheritance/utils/styles/styles.dart';
 
 class InheritanceTextInputWidget extends StatefulWidget {
@@ -83,25 +85,14 @@ class _InheritanceTextInputWidgetState extends State<InheritanceTextInputWidget>
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 if (widget.handleBack != null)
-                  InkWell(
-                    onTap: widget.handleBack,
-                    child: Container(
-                      padding: padding,
-                      margin: EdgeInsets.only(right: 40),
-                      decoration: decoration.copyWith(color: context.secondaryHeaderColor),
-                      child: txt(widget.backTitle ?? 'Back', e: St.bold20, c: Colors.white),
-                    ),
-                  ),
+                  CustomBackButton(onTap: widget.handleBack, title: widget.backTitle),
+
                 if (widget.handleSubmit != null)
-                  InkWell(
+                  CustomNextButton(
                     onTap: () {
                       widget.handleSubmit!(textController.text);
                     },
-                    child: Container(
-                      padding: padding,
-                      decoration: decoration,
-                      child: txt(widget.nextTitle ?? 'Next', e: St.bold20, c: Colors.white),
-                    ),
+                    title: widget.backTitle,
                   ),
               ],
             );
