@@ -9,6 +9,7 @@ import 'package:inheritance/features/inheritance/presentation/widgets/is_wasiyat
 import 'package:inheritance/features/inheritance/presentation/widgets/loan_amount_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/total_amount_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/wasiyat_amount.dart';
+import 'package:inheritance/features/inheritance/presentation/widgets/your_relationship_widget.dart';
 import 'package:inheritance/utils/assets/assets.dart';
 
 class InheritanceScreen extends StatelessWidget {
@@ -69,6 +70,7 @@ class InheritanceContent extends StatelessWidget {
         IsLoanWidget(),
         LoanAmountWidget(),
         IsUnbornWidget(),
+        YourRelationshipWidget(),
       ],
     );
   }

@@ -9,7 +9,7 @@ class InheritanceState {
   bool? isLoan;
   double? loanAmount;
   bool? isUnborn;
-  RelationEnum? yourRelation;
+  Relation? yourRelation;
   GenderEnum? deceasedGender;
   bool? maleDeceasedStatus;
   bool? femaleDeceasedStatus;
@@ -53,7 +53,7 @@ class InheritanceState {
     bool? isLoan,
     double? loanAmount,
     bool? isUnborn,
-    RelationEnum? yourRelation,
+    Relation? yourRelation,
     GenderEnum? deceasedGender,
     bool? maleDeceasedStatus,
     bool? femaleDeceasedStatus,

@@ -4,7 +4,7 @@ import 'package:inheritance/features/inheritance/presentation/widgets/back_butto
 import 'package:inheritance/features/inheritance/presentation/widgets/custom_image.dart';
 import 'package:inheritance/utils/styles/styles.dart';
 
-class InheritanceRadioWidget extends StatefulWidget {
+class InheritanceRadioWidget<T> extends StatefulWidget {
   const InheritanceRadioWidget({
     super.key,
     required this.options,
@@ -16,20 +16,20 @@ class InheritanceRadioWidget extends StatefulWidget {
     this.nextTitle,
     this.displayInRow = true,
   });
-  final List<String> options;
+  final List<T> options;
   final String? image;
   final String? label;
-  final void Function(String?)? handleAnswer;
+  final void Function(T?)? handleAnswer;
   final void Function()? handleBack;
   final String? backTitle;
   final String? nextTitle;
   final bool displayInRow;
   @override
-  State<InheritanceRadioWidget> createState() => _InheritanceRadioWidgetState();
+  State<InheritanceRadioWidget> createState() => _InheritanceRadioWidgetState<T>();
 }
 
-class _InheritanceRadioWidgetState extends State<InheritanceRadioWidget> {
-  String? selectedValue;
+class _InheritanceRadioWidgetState<T> extends State<InheritanceRadioWidget> {
+  T? selectedValue;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -44,8 +44,8 @@ class _InheritanceRadioWidgetState extends State<InheritanceRadioWidget> {
             var widgets =
                 widget.options.map((e) {
                   return ListTile(
-                    title: Text(e),
-                    leading: Radio<String>(
+                    title: Text(e.display),
+                    leading: Radio<T>(
                       value: e,
                       groupValue: selectedValue,
                       onChanged: (value) {
