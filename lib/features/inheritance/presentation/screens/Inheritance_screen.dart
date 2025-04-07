@@ -4,6 +4,7 @@ import 'package:inheritance/core/extensions/context-extensions.dart';
 import 'package:inheritance/core/widgets/main_scaffold.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/appbar_title.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/is_loan_widget.dart';
+import 'package:inheritance/features/inheritance/presentation/widgets/is_unborn_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/is_wasiyat_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/loan_amount_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/total_amount_widget.dart';
@@ -67,6 +68,7 @@ class InheritanceContent extends StatelessWidget {
         WasiyatAmountWidget(),
         IsLoanWidget(),
         LoanAmountWidget(),
+        IsUnbornWidget(),
       ],
     );
   }

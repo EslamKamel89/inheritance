@@ -32,6 +32,9 @@ class _AppBarTitleState extends State<AppBarTitle> {
       case InheritanceEnum.loanAmount:
         title = "Loan Amount?";
         break;
+      case InheritanceEnum.isUnborn:
+        title = "Any unborn baby?";
+        break;
       default:
     }
     return txt(title);
