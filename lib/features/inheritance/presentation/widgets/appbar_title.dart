@@ -23,6 +23,9 @@ class _AppBarTitleState extends State<AppBarTitle> {
       case InheritanceEnum.isWasiyat:
         title = "Any will written?";
         break;
+      case InheritanceEnum.wasiyatAmount:
+        title = "Will or Wasiyat amount?";
+        break;
       default:
     }
     return txt(title);
