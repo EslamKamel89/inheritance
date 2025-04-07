@@ -4,9 +4,10 @@ import 'package:inheritance/features/inheritance/presentation/widgets/back_butto
 import 'package:inheritance/features/inheritance/presentation/widgets/custom_image.dart';
 import 'package:inheritance/utils/styles/styles.dart';
 
-class InheritanceYesNoWidget extends StatefulWidget {
-  const InheritanceYesNoWidget({
+class InheritanceRadioWidget extends StatefulWidget {
+  const InheritanceRadioWidget({
     super.key,
+    required this.options,
     required this.image,
     this.label,
     this.handleAnswer,
@@ -15,19 +16,20 @@ class InheritanceYesNoWidget extends StatefulWidget {
     this.nextTitle,
     this.displayInRow = true,
   });
+  final List<String> options;
   final String? image;
   final String? label;
-  final void Function(bool)? handleAnswer;
+  final void Function(String?)? handleAnswer;
   final void Function()? handleBack;
   final String? backTitle;
   final String? nextTitle;
   final bool displayInRow;
   @override
-  State<InheritanceYesNoWidget> createState() => _InheritanceYesNoWidgetState();
+  State<InheritanceRadioWidget> createState() => _InheritanceRadioWidgetState();
 }
 
-class _InheritanceYesNoWidgetState extends State<InheritanceYesNoWidget> {
-  bool? selectedValue;
+class _InheritanceRadioWidgetState extends State<InheritanceRadioWidget> {
+  String? selectedValue;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -39,35 +41,22 @@ class _InheritanceYesNoWidgetState extends State<InheritanceYesNoWidget> {
         Sizer(),
         Builder(
           builder: (context) {
-            var widgets = [
-              ListTile(
-                title: Text('NO'),
-                leading: Radio<bool>(
-                  value: false,
-                  groupValue: selectedValue,
-                  onChanged: (value) {
-                    setState(() {
-                      selectedValue = value ?? false;
-                    });
-                    if (widget.handleAnswer != null) widget.handleAnswer!(false);
-                  },
-                ),
-              ),
-              // Second radio button
-              ListTile(
-                title: Text('YES'),
-                leading: Radio<bool>(
-                  value: true,
-                  groupValue: selectedValue,
-                  onChanged: (value) {
-                    setState(() {
-                      selectedValue = value ?? false;
-                    });
-                    if (widget.handleAnswer != null) widget.handleAnswer!(true);
-                  },
-                ),
-              ),
-            ];
+            var widgets =
+                widget.options.map((e) {
+                  return ListTile(
+                    title: Text(e),
+                    leading: Radio<String>(
+                      value: e,
+                      groupValue: selectedValue,
+                      onChanged: (value) {
+                        setState(() {
+                          selectedValue = value;
+                        });
+                        if (widget.handleAnswer != null) widget.handleAnswer!(value);
+                      },
+                    ),
+                  );
+                }).toList();
             return widget.displayInRow
                 ? Row(children: widgets.map((e) => Expanded(child: e)).toList())
                 : Column(children: widgets);
