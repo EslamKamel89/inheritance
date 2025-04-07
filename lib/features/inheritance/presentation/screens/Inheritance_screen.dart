@@ -5,6 +5,7 @@ import 'package:inheritance/core/widgets/main_scaffold.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/appbar_title.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/is_wasiyat_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/total_amount_widget.dart';
+import 'package:inheritance/features/inheritance/presentation/widgets/wasiyat_amount.dart';
 import 'package:inheritance/utils/assets/assets.dart';
 
 class InheritanceScreen extends StatelessWidget {
@@ -57,6 +58,6 @@ class InheritanceContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [TotalAmountWidget(), IsWasiyatWidget()]);
+    return Column(children: [TotalAmountWidget(), IsWasiyatWidget(), WasiyatAmountWidget()]);
   }
 }

@@ -28,7 +28,7 @@ class _IsWasiyatWidgetState extends State<IsWasiyatWidget> {
             ? DefaultAnimation(
               child: InheritanceYesNoWidget(
                 image: AssetsData.contract,
-                label: "Is there any “WILL” or “Wasiyat” by the deceased?",
+                label: "Is there any WILL or Wasiyat by the deceased?",
                 handleAnswer: (bool answer) {
                   Future.delayed(500.ms, () {
                     if (answer) {

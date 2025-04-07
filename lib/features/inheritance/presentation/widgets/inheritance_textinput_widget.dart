@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:inheritance/core/extensions/context-extensions.dart';
 import 'package:inheritance/core/themes/themedata.dart';
 import 'package:inheritance/core/widgets/sizer.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/back_button.dart';
@@ -76,17 +75,12 @@ class _InheritanceTextInputWidgetState extends State<InheritanceTextInputWidget>
         Sizer(height: 30),
         Builder(
           builder: (context) {
-            final decoration = BoxDecoration(
-              color: context.primaryColor,
-              borderRadius: BorderRadius.circular(10),
-            );
-            final padding = EdgeInsets.symmetric(vertical: 10, horizontal: 20);
             return Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 if (widget.handleBack != null)
                   CustomBackButton(onTap: widget.handleBack, title: widget.backTitle),
-
+                Sizer(),
                 if (widget.handleSubmit != null)
                   CustomNextButton(
                     onTap: () {

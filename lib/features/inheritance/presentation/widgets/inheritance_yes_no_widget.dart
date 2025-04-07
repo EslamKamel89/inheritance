@@ -25,7 +25,7 @@ class InheritanceYesNoWidget extends StatefulWidget {
 }
 
 class _InheritanceYesNoWidgetState extends State<InheritanceYesNoWidget> {
-  bool selectedValue = false;
+  bool? selectedValue;
   @override
   Widget build(BuildContext context) {
     return Column(
