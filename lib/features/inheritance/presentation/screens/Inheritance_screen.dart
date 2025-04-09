@@ -9,6 +9,7 @@ import 'package:inheritance/features/inheritance/presentation/widgets/is_loan_wi
 import 'package:inheritance/features/inheritance/presentation/widgets/is_unborn_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/is_wasiyat_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/loan_amount_widget.dart';
+import 'package:inheritance/features/inheritance/presentation/widgets/male_deceased_status.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/total_amount_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/wasiyat_amount.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/your_relationship_widget.dart';
@@ -75,6 +76,7 @@ class InheritanceContent extends StatelessWidget {
         YourRelationshipWidget(),
         IsFatherAliveWidget(),
         DeceasedGenderWidget(),
+        MaleDeceasedStatusWidget(),
       ],
     );
   }
