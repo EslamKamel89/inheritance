@@ -3,6 +3,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:inheritance/core/extensions/context-extensions.dart';
 import 'package:inheritance/core/widgets/main_scaffold.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/appbar_title.dart';
+import 'package:inheritance/features/inheritance/presentation/widgets/brothers_count_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/daughters_count_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/deceassed_gender_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/female_deceased_status.dart';
@@ -93,6 +94,7 @@ class InheritanceContent extends StatelessWidget {
         DaughtersCountWidget(),
         SistersCountWidget(),
         IsBrothersWidget(),
+        BrothersCountWidget(),
       ],
     );
   }
