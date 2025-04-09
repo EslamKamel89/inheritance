@@ -18,4 +18,6 @@ class AssetsData {
   static const String father = "$_relativePath/father.png";
   static const String wife = "$_relativePath/wife.png";
   static const String mother = "$_relativePath/mother.png";
+  static const String children = "$_relativePath/children.png";
+  static const String sisters = "$_relativePath/sisters.png";
 }

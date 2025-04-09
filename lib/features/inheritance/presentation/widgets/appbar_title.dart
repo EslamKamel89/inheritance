@@ -53,6 +53,12 @@ class _AppBarTitleState extends State<AppBarTitle> {
       case InheritanceEnum.isMotherAlive:
         title = "Mother still alive?";
         break;
+      case InheritanceEnum.isChildren:
+        title = "Deceased's children?";
+        break;
+      case InheritanceEnum.isSisters:
+        title = "Deceased's sisters?";
+        break;
       default:
     }
     return txt(title);

@@ -5,9 +5,11 @@ import 'package:inheritance/core/widgets/main_scaffold.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/appbar_title.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/deceassed_gender_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/female_deceased_status.dart';
+import 'package:inheritance/features/inheritance/presentation/widgets/is_children.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/is_father_alive.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/is_loan_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/is_mother_alive.dart';
+import 'package:inheritance/features/inheritance/presentation/widgets/is_sisters.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/is_unborn_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/is_wasiyat_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/loan_amount_widget.dart';
@@ -81,6 +83,8 @@ class InheritanceContent extends StatelessWidget {
         MaleDeceasedStatusWidget(),
         FemaleDeceasedStatusWidget(),
         IsMotherAliveWidget(),
+        IsChildrenWidget(),
+        IsSistersWidget(),
       ],
     );
   }
