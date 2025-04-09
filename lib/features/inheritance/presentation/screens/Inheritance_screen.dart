@@ -3,6 +3,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:inheritance/core/extensions/context-extensions.dart';
 import 'package:inheritance/core/widgets/main_scaffold.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/appbar_title.dart';
+import 'package:inheritance/features/inheritance/presentation/widgets/deceassed_gender_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/is_father_alive.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/is_loan_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/is_unborn_widget.dart';
@@ -73,6 +74,7 @@ class InheritanceContent extends StatelessWidget {
         IsUnbornWidget(),
         YourRelationshipWidget(),
         IsFatherAliveWidget(),
+        DeceasedGenderWidget(),
       ],
     );
   }
