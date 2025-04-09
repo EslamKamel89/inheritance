@@ -16,9 +16,15 @@ class YourRelationshipWidget extends StatefulWidget {
 }
 
 class _YourRelationshipWidgetState extends State<YourRelationshipWidget> {
+  late final InheritanceCubit controller;
+  @override
+  void initState() {
+    controller = context.read<InheritanceCubit>();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final controller = context.read<InheritanceCubit>();
     return BlocBuilder<InheritanceCubit, InheritanceState>(
       buildWhen: (previous, current) {
         return previous.currentStep == InheritanceEnum.yourRelation ||
@@ -32,7 +38,8 @@ class _YourRelationshipWidgetState extends State<YourRelationshipWidget> {
                 options: Relation.values,
                 image: AssetsData.husbandAndWife,
                 label: "What is your relation with the deceased?",
-                handleAnswer: (Relation? answer) {
+                handleAnswer: (dynamic ans) {
+                  final answer = ans as Relation?;
                   if (answer == null) return;
                   Future.delayed(500.ms, () {
                     if (answer == Relation.husband || answer == Relation.wife) {

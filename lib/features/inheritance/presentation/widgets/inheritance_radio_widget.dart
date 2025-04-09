@@ -10,7 +10,7 @@ class InheritanceRadioWidget<T> extends StatefulWidget {
     required this.options,
     required this.image,
     this.label,
-    this.handleAnswer,
+    required this.handleAnswer,
     this.handleBack,
     this.backTitle,
     this.nextTitle,
@@ -19,7 +19,7 @@ class InheritanceRadioWidget<T> extends StatefulWidget {
   final List<T> options;
   final String? image;
   final String? label;
-  final void Function(T?)? handleAnswer;
+  final void Function(dynamic) handleAnswer;
   final void Function()? handleBack;
   final String? backTitle;
   final String? nextTitle;
@@ -52,7 +52,7 @@ class _InheritanceRadioWidgetState<T> extends State<InheritanceRadioWidget> {
                         setState(() {
                           selectedValue = value;
                         });
-                        if (widget.handleAnswer != null) widget.handleAnswer!(value);
+                        widget.handleAnswer(value);
                       },
                     ),
                   );
