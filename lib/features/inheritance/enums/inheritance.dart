@@ -18,4 +18,5 @@ enum InheritanceEnum {
   sistersCount,
   isBrothers,
   brothersCount,
+  result,
 }

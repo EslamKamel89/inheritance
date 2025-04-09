@@ -65,6 +65,12 @@ class _AppBarTitleState extends State<AppBarTitle> {
       case InheritanceEnum.daughersCount:
         title = "Daughters count?";
         break;
+      case InheritanceEnum.sistersCount:
+        title = "Sisterss count?";
+        break;
+      case InheritanceEnum.isBrothers:
+        title = "Deceased's brothers?";
+        break;
       default:
     }
     return txt(title);

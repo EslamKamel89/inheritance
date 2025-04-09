@@ -6,6 +6,7 @@ import 'package:inheritance/features/inheritance/presentation/widgets/appbar_tit
 import 'package:inheritance/features/inheritance/presentation/widgets/daughters_count_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/deceassed_gender_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/female_deceased_status.dart';
+import 'package:inheritance/features/inheritance/presentation/widgets/is_brothers.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/is_children.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/is_father_alive.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/is_loan_widget.dart';
@@ -15,6 +16,7 @@ import 'package:inheritance/features/inheritance/presentation/widgets/is_unborn_
 import 'package:inheritance/features/inheritance/presentation/widgets/is_wasiyat_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/loan_amount_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/male_deceased_status.dart';
+import 'package:inheritance/features/inheritance/presentation/widgets/sisters_count_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/sons_count_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/total_amount_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/wasiyat_amount.dart';
@@ -89,6 +91,8 @@ class InheritanceContent extends StatelessWidget {
         IsSistersWidget(),
         SonsCountWidget(),
         DaughtersCountWidget(),
+        SistersCountWidget(),
+        IsBrothersWidget(),
       ],
     );
   }
