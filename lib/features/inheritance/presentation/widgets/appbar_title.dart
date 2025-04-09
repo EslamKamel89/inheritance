@@ -47,6 +47,9 @@ class _AppBarTitleState extends State<AppBarTitle> {
       case InheritanceEnum.maleDeceasedStatus:
         title = "Deceased's wife alive?";
         break;
+      case InheritanceEnum.femaleDeceasedStatus:
+        title = "Deceased's husband alive?";
+        break;
       default:
     }
     return txt(title);
