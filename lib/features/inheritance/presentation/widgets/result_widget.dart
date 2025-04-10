@@ -29,8 +29,17 @@ class _ResultWidgetState extends State<ResultWidget> {
             ? DefaultAnimation(
               child: Column(
                 children: [
-                  Container(child: txt(state.toString())),
                   Sizer(),
+                  _headerRow('Islamic Heir', "Amount", "Percent"),
+                  _dataRow('Father', "300", "5.00%"),
+                  _dataRow('Mother', "300", "5.00%"),
+                  _dataRow('Husband', "300", "5.00%"),
+                  _dataRow('Wife', "300", "5.00%"),
+                  _dataRow('Daughter(each)', "300", "5.00%"),
+                  _dataRow('son(each)', "300", "5.00%"),
+                  _dataRow('Brother(each)', "300", "5.00%"),
+                  _dataRow('Sister(each)', "300", "5.00%"),
+                  Sizer(height: 30),
                   Row(
                     children: [
                       CustomBackButton(
@@ -56,6 +65,39 @@ class _ResultWidgetState extends State<ResultWidget> {
             )
             : SizedBox();
       },
+    );
+  }
+
+  Widget _headerRow(String title, String amount, String percent) {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border(bottom: BorderSide(color: Colors.grey), top: BorderSide(color: Colors.grey)),
+      ),
+      padding: EdgeInsets.symmetric(vertical: 15),
+      child: Row(
+        children: [
+          Expanded(flex: 2, child: txt(title, e: St.bold18)),
+          Expanded(flex: 1, child: txt(amount, e: St.reg18)),
+          Expanded(flex: 1, child: txt(percent, e: St.reg18)),
+        ],
+      ),
+    );
+  }
+
+  Widget _dataRow(String title, String? amount, String? percent) {
+    if (amount == null || percent == null) return SizedBox();
+    return Container(
+      decoration: BoxDecoration(
+        border: Border(bottom: BorderSide(color: Colors.grey.withOpacity(0.4))),
+      ),
+      padding: EdgeInsets.symmetric(vertical: 10),
+      child: Row(
+        children: [
+          Expanded(flex: 2, child: txt(title, e: St.bold16)),
+          Expanded(flex: 1, child: txt(amount, e: St.reg16)),
+          Expanded(flex: 1, child: txt(percent, e: St.reg16)),
+        ],
+      ),
     );
   }
 }
