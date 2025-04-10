@@ -17,9 +17,16 @@ class IsUnbornWidget extends StatefulWidget {
 
 class _IsUnbornWidgetState extends State<IsUnbornWidget> {
   bool showWarning = false;
+  late final InheritanceCubit controller;
+  @override
+  void initState() {
+    controller = context.read<InheritanceCubit>();
+    controller.state.isUnborn = null;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final controller = context.read<InheritanceCubit>();
     return BlocBuilder<InheritanceCubit, InheritanceState>(
       buildWhen: (previous, current) {
         return previous.currentStep == InheritanceEnum.isUnborn ||

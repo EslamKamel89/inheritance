@@ -15,9 +15,16 @@ class MaleDeceasedStatusWidget extends StatefulWidget {
 }
 
 class _MaleDeceasedStatusWidgetState extends State<MaleDeceasedStatusWidget> {
+  late final InheritanceCubit controller;
+  @override
+  void initState() {
+    controller = context.read<InheritanceCubit>();
+    controller.state.maleDeceasedStatus = null;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final controller = context.read<InheritanceCubit>();
     return BlocBuilder<InheritanceCubit, InheritanceState>(
       buildWhen: (previous, current) {
         return previous.currentStep == InheritanceEnum.maleDeceasedStatus ||

@@ -15,9 +15,16 @@ class DaughtersCountWidget extends StatefulWidget {
 }
 
 class _DaughtersCountWidgetState extends State<DaughtersCountWidget> {
+  late final InheritanceCubit controller;
+  @override
+  void initState() {
+    controller = context.read<InheritanceCubit>();
+    controller.state.daughersCount = null;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final controller = context.read<InheritanceCubit>();
     return BlocBuilder<InheritanceCubit, InheritanceState>(
       buildWhen: (previous, current) {
         return previous.currentStep == InheritanceEnum.daughersCount ||

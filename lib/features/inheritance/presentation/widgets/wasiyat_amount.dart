@@ -15,9 +15,16 @@ class WasiyatAmountWidget extends StatefulWidget {
 }
 
 class _WasiyatAmountWidgetState extends State<WasiyatAmountWidget> {
+  late final InheritanceCubit controller;
+  @override
+  void initState() {
+    controller = context.read<InheritanceCubit>();
+    controller.state.wasiyatAmount = null;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final controller = context.read<InheritanceCubit>();
     return BlocBuilder<InheritanceCubit, InheritanceState>(
       buildWhen: (previous, current) {
         return previous.currentStep == InheritanceEnum.wasiyatAmount ||

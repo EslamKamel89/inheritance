@@ -15,9 +15,16 @@ class IsBrothersWidget extends StatefulWidget {
 }
 
 class _IsBrothersWidgetState extends State<IsBrothersWidget> {
+  late final InheritanceCubit controller;
+  @override
+  void initState() {
+    controller = context.read<InheritanceCubit>();
+    controller.state.isBrothers = null;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final controller = context.read<InheritanceCubit>();
     return BlocBuilder<InheritanceCubit, InheritanceState>(
       buildWhen: (previous, current) {
         return previous.currentStep == InheritanceEnum.isBrothers ||

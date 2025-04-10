@@ -20,6 +20,7 @@ class _YourRelationshipWidgetState extends State<YourRelationshipWidget> {
   @override
   void initState() {
     controller = context.read<InheritanceCubit>();
+    controller.state.yourRelation = null;
     super.initState();
   }
 

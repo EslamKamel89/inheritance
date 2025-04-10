@@ -15,9 +15,16 @@ class IsMotherAliveWidget extends StatefulWidget {
 }
 
 class _IsMotherAliveWidgetState extends State<IsMotherAliveWidget> {
+  late final InheritanceCubit controller;
+  @override
+  void initState() {
+    controller = context.read<InheritanceCubit>();
+    controller.state.isMotherAlive = null;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final controller = context.read<InheritanceCubit>();
     return BlocBuilder<InheritanceCubit, InheritanceState>(
       buildWhen: (previous, current) {
         return previous.currentStep == InheritanceEnum.isMotherAlive ||
