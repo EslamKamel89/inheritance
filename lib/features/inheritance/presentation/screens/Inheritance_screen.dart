@@ -17,6 +17,7 @@ import 'package:inheritance/features/inheritance/presentation/widgets/is_unborn_
 import 'package:inheritance/features/inheritance/presentation/widgets/is_wasiyat_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/loan_amount_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/male_deceased_status.dart';
+import 'package:inheritance/features/inheritance/presentation/widgets/progress_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/result_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/sisters_count_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/sons_count_widget.dart';
@@ -55,13 +56,24 @@ class InheritanceScreen extends StatelessWidget {
           floatingActionButton: Material(
             borderRadius: BorderRadius.circular(70),
             elevation: 3,
-            child: Container(
-              width: 70,
-              height: 70,
-              decoration: BoxDecoration(color: Colors.white, shape: BoxShape.circle),
-              clipBehavior: Clip.hardEdge,
-              child: Image.asset(AssetsData.star2),
-            ).animate(onPlay: (c) => c.repeat()).rotate(duration: 5000.ms, begin: 0, end: 1),
+            child: InkWell(
+              onTap: () {
+                showModalBottomSheet(
+                  backgroundColor: Colors.transparent,
+                  context: context,
+                  builder: (context) {
+                    return ProgressWidget();
+                  },
+                );
+              },
+              child: Container(
+                width: 70,
+                height: 70,
+                decoration: BoxDecoration(color: Colors.white, shape: BoxShape.circle),
+                clipBehavior: Clip.hardEdge,
+                child: Image.asset(AssetsData.star2),
+              ).animate(onPlay: (c) => c.repeat()).rotate(duration: 5000.ms, begin: 0, end: 1),
+            ),
           ),
           child: SingleChildScrollView(child: InheritanceContent()),
         ),

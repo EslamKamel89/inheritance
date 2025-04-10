@@ -15,9 +15,16 @@ class TotalAmountWidget extends StatefulWidget {
 }
 
 class _TotalAmountWidgetState extends State<TotalAmountWidget> {
+  late final InheritanceCubit controller;
+  @override
+  void initState() {
+    controller = context.read<InheritanceCubit>();
+    controller.state.totalAmount = null;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    final controller = context.read<InheritanceCubit>();
     return BlocBuilder<InheritanceCubit, InheritanceState>(
       buildWhen: (previous, current) {
         return previous.currentStep == InheritanceEnum.totalAmount ||
