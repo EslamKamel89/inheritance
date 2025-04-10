@@ -17,7 +17,7 @@ class InheritanceState {
   bool? isMotherAlive;
   bool? isChildren;
   int? sonsCount;
-  int? daughersCount;
+  int? daughtersCount;
   bool? isSisters;
   int? sistersCount;
   bool? isBrothers;
@@ -38,7 +38,7 @@ class InheritanceState {
     this.isMotherAlive,
     this.isChildren,
     this.sonsCount,
-    this.daughersCount,
+    this.daughtersCount,
     this.isSisters,
     this.sistersCount,
     this.isBrothers,
@@ -83,7 +83,7 @@ class InheritanceState {
       isMotherAlive: isMotherAlive ?? this.isMotherAlive,
       isChildren: isChildren ?? this.isChildren,
       sonsCount: sonsCount ?? this.sonsCount,
-      daughersCount: daughersCount ?? this.daughersCount,
+      daughtersCount: daughersCount ?? daughtersCount,
       isSisters: isSisters ?? this.isSisters,
       sistersCount: sistersCount ?? this.sistersCount,
       isBrothers: isBrothers ?? this.isBrothers,
@@ -93,6 +93,6 @@ class InheritanceState {
 
   @override
   String toString() {
-    return 'InheritanceState(currentStep: $currentStep, totalAmount: $totalAmount, isWasiyat: $isWasiyat, wasiyatAmount: $wasiyatAmount, isLoan: $isLoan, loanAmount: $loanAmount, isUnborn: $isUnborn, yourRelation: $yourRelation, deceasedGender: $deceasedGender, maleDeceasedStatus: $maleDeceasedStatus, femaleDeceasedStatus: $femaleDeceasedStatus, isFatherAlive: $isFatherAlive, isMotherAlive: $isMotherAlive, isChildren: $isChildren, sonsCount: $sonsCount, daughersCount: $daughersCount, isSisters: $isSisters, sistersCount: $sistersCount, isBrothers: $isBrothers, brothersCount: $brothersCount)';
+    return 'InheritanceState(currentStep: $currentStep, totalAmount: $totalAmount, isWasiyat: $isWasiyat, wasiyatAmount: $wasiyatAmount, isLoan: $isLoan, loanAmount: $loanAmount, isUnborn: $isUnborn, yourRelation: $yourRelation, deceasedGender: $deceasedGender, maleDeceasedStatus: $maleDeceasedStatus, femaleDeceasedStatus: $femaleDeceasedStatus, isFatherAlive: $isFatherAlive, isMotherAlive: $isMotherAlive, isChildren: $isChildren, sonsCount: $sonsCount, daughersCount: $daughtersCount, isSisters: $isSisters, sistersCount: $sistersCount, isBrothers: $isBrothers, brothersCount: $brothersCount)';
   }
 }

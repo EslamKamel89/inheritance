@@ -19,7 +19,7 @@ class _DaughtersCountWidgetState extends State<DaughtersCountWidget> {
   @override
   void initState() {
     controller = context.read<InheritanceCubit>();
-    controller.state.daughersCount = null;
+    controller.state.daughtersCount = null;
     super.initState();
   }
 
@@ -40,11 +40,11 @@ class _DaughtersCountWidgetState extends State<DaughtersCountWidget> {
                     showSnackbar('Error', 'Please Enter Daughters Count', true);
                     return;
                   }
-                  state.daughersCount = int.parse(val);
+                  state.daughtersCount = int.parse(val);
                   controller.changeStep(InheritanceEnum.isSisters);
                 },
                 handleBack: () {
-                  state.daughersCount = null;
+                  state.daughtersCount = null;
                   controller.changeStep(InheritanceEnum.sonsCount);
                 },
                 label: 'How many daughter(s) of the deceased?',
