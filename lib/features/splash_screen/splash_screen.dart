@@ -36,7 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
               Image.asset(AssetsData.logo, width: 100, height: 100),
               // Animated App Title
               const Text(
-                'Islamic Inheritance',
+                'Mirath',
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white),
               ).animate().fadeIn(delay: 1000.ms, duration: 1000.ms),
               const SizedBox(height: 10),
@@ -47,12 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
               ).animate().fadeIn(delay: 1500.ms, duration: 1000.ms),
             ],
           ) // Drop from top
-          .animate().moveY(
-            duration: const Duration(milliseconds: 1000),
-            curve: Curves.bounceOut,
-            begin: -300,
-            end: 0,
-          ),
+          .animate().moveY(duration: const Duration(milliseconds: 1000), curve: Curves.bounceOut, begin: -300, end: 0),
         ),
       ),
     );
