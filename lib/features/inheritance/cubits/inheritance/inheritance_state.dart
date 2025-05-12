@@ -91,6 +91,17 @@ class InheritanceState {
     );
   }
 
+  Map<String, dynamic> toRequestBody() {
+    return {
+      "marry": yourRelation?.name ?? 'none',
+      "father": isFatherAlive ?? false,
+      "mother": isMotherAlive ?? false,
+      "sonCount": sonsCount,
+      "daughterCount": daughtersCount,
+      "totalAmount": totalAmount,
+    };
+  }
+
   @override
   String toString() {
     return 'InheritanceState(currentStep: $currentStep, totalAmount: $totalAmount, isWasiyat: $isWasiyat, wasiyatAmount: $wasiyatAmount, isLoan: $isLoan, loanAmount: $loanAmount, isUnborn: $isUnborn, yourRelation: $yourRelation, deceasedGender: $deceasedGender, maleDeceasedStatus: $maleDeceasedStatus, femaleDeceasedStatus: $femaleDeceasedStatus, isFatherAlive: $isFatherAlive, isMotherAlive: $isMotherAlive, isChildren: $isChildren, sonsCount: $sonsCount, daughersCount: $daughtersCount, isSisters: $isSisters, sistersCount: $sistersCount, isBrothers: $isBrothers, brothersCount: $brothersCount)';
