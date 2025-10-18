@@ -56,7 +56,7 @@ class _AuthTextFormFieldState extends State<AuthTextFormField> {
                   },
                 )
                 : null,
-        border: context.inputDecorationTheme.border,
+        // border: context.inputDecorationTheme.border,
       ),
     );
   }
@@ -185,7 +185,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                   },
                 )
                 : null,
-        border: context.inputDecorationTheme.border,
+        // border: context.inputDecorationTheme.border,
       ),
     );
   }
@@ -516,12 +516,12 @@ class _DropDownWidgetState extends State<DropDownWidget> {
   InputDecoration _decoration(String label) {
     return InputDecoration(
       labelText: label,
-      labelStyle: context.inputDecorationTheme.labelStyle,
-      hintStyle: context.inputDecorationTheme.hintStyle,
-      border: context.inputDecorationTheme.border,
-      enabledBorder: context.inputDecorationTheme.enabledBorder,
-      focusedBorder: context.inputDecorationTheme.focusedBorder,
-      contentPadding: context.inputDecorationTheme.contentPadding,
+      // labelStyle: context.inputDecorationTheme.labelStyle,
+      // hintStyle: context.inputDecorationTheme.hintStyle,
+      // border: context.inputDecorationTheme.border,
+      // enabledBorder: context.inputDecorationTheme.enabledBorder,
+      // focusedBorder: context.inputDecorationTheme.focusedBorder,
+      // contentPadding: context.inputDecorationTheme.contentPadding,
     );
   }
 }
