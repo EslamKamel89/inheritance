@@ -4,6 +4,7 @@ import 'package:inheritance/core/enums/response_type.dart';
 import 'package:inheritance/core/extensions/context-extensions.dart';
 import 'package:inheritance/core/heleprs/format_double.dart';
 import 'package:inheritance/core/models/api_response_model.dart';
+import 'package:inheritance/core/themes/themedata.dart';
 import 'package:inheritance/core/widgets/sizer.dart';
 import 'package:inheritance/features/inheritance/cubits/inheritance/inheritance_cubit.dart';
 import 'package:inheritance/features/inheritance/cubits/result/result_cubit.dart';
@@ -12,6 +13,7 @@ import 'package:inheritance/features/inheritance/models/result_model.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/back_button.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/default_animation.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/next_button.dart';
+import 'package:inheritance/features/inheritance/presentation/widgets/result_data_widget.dart';
 import 'package:inheritance/utils/styles/styles.dart';
 
 class ResultWidget extends StatefulWidget {
@@ -58,6 +60,7 @@ class _ResultWidgetState extends State<ResultWidget> {
                       ),
                     ],
                   ),
+                  Sizer(),
                 ],
               ),
             )
@@ -80,27 +83,7 @@ class _ResultTableWidgetState extends State<ResultTableWidget> {
     return BlocBuilder<ResultCubit, ApiResponseModel<ResultModel>>(
       builder: (context, state) {
         if (state.response == ResponseEnum.success) {
-          return Column(
-            children: [
-              // _headerRow('Islamic Heir', "Amount", "Percent"),
-              // if (state.data?.totalAmount != null)
-              //   _dataRow('Total Amount', state.data?.totalAmount, "5.00%"),
-              // if (state.data?.father != null) _dataRow('Father', state.data?.father, "5.00%"),
-              // if (state.data?.mother != null) _dataRow('Mother', state.data?.mother, "5.00%"),
-              // if (state.data?.husband != null) _dataRow('Husband', state.data?.husband, "5.00%"),
-              // if (state.data?.wife != null) _dataRow('Wife', state.data?.wife, "5.00%"),
-              // if (state.data?.sons != null) _dataRow('sons', state.data?.sons, "5.00%"),
-              // if (state.data?.son != null) _dataRow('son(each)', state.data?.son, "5.00%"),
-              // if (state.data?.daughters != null)
-              //   _dataRow('Daughters', state.data?.daughters, "5.00%"),
-              // if (state.data?.daughter != null)
-              //   _dataRow('Daughter(each)', state.data?.daughter, "5.00%"),
-              // if (state.data?.remaining != null)
-              //   _dataRow('Remaining', state.data?.remaining, "5.00%"),
-              // _dataRow('Brother(each)', "300", "5.00%"),
-              // _dataRow('Sister(each)', "300", "5.00%"),
-            ],
-          );
+          return ResultDataWidget(data: state.data?.data ?? {}, palette: lightClr);
         } else {
           return SizedBox(
             width: double.infinity,
