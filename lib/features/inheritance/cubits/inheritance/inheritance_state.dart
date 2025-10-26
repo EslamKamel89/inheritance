@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 part of 'inheritance_cubit.dart';
 
 class InheritanceState {
@@ -92,6 +91,33 @@ class InheritanceState {
   }
 
   Map<String, dynamic> toRequestBody() {
+    // return {
+    //   "totalAmount": 150000.0,
+    //   "isWasiyat": false,
+    //   "wasiyatAmount": 0.0,
+    //   "isLoan": false,
+    //   "loanAmount": 0.0,
+    //   "isUnborn": false,
+
+    //   // Relation enum → allowed values: "husband", "wife", "none"
+    //   "yourRelation": null,
+
+    //   // GenderEnum enum → allowed values: "male", "female"
+    //   "deceasedGender": "female",
+
+    //   "maleDeceasedStatus": false,
+    //   "femaleDeceasedStatus": false,
+    //   "isFatherAlive": false,
+    //   "isMotherAlive": false,
+    //   "isChildren": true,
+    //   "sonsCount": 2,
+    //   "daughtersCount": 2,
+    //   "isSisters": true,
+    //   "sistersCount": 1,
+    //   "isBrothers": true,
+    //   "brothersCount": 2,
+    // };
+
     return {
       'totalAmount': totalAmount,
       'isWasiyat': isWasiyat,
