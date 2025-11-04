@@ -36,7 +36,7 @@ class GrandChildInfoModel {
   }
 
   Map<String, dynamic> toJson() => {
-    'gender': gender,
+    'gender': gender?.name,
     'status': status,
     'grandChildrenMalesCount': grandChildrenMalesCount,
     'grandChildrenFemalesCount': grandChildrenFemalesCount,
