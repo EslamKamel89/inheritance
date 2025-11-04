@@ -48,8 +48,8 @@ class _IsSistersWidgetState extends State<IsSistersWidget> {
                 },
                 handleBack: () {
                   state.isSisters = null;
-                  if (state.daughtersCount != null) {
-                    controller.changeStep(InheritanceEnum.daughtersCount);
+                  if (controller.state.grandChildrenInfo != null) {
+                    controller.changeStep(InheritanceEnum.grandChildrenInfo);
                   } else {
                     controller.changeStep(InheritanceEnum.isChildren);
                   }

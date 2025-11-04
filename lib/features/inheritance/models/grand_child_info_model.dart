@@ -2,15 +2,11 @@
 import 'package:inheritance/features/inheritance/enums/gender_enum.dart';
 
 class GrandChildrenInfoModel {
-  bool submitted;
   List<GrandChildInfoModel> grandChildren;
-  GrandChildrenInfoModel({required this.submitted, required this.grandChildren});
+  GrandChildrenInfoModel({required this.grandChildren});
 
   Map<String, dynamic> toJson() {
-    return <String, dynamic>{
-      'submitted': submitted,
-      'grandChildren': grandChildren.map((x) => x.toJson()).toList(),
-    };
+    return <String, dynamic>{'grandChildren': grandChildren.map((x) => x.toJson()).toList()};
   }
 
   List<Map<String, dynamic>> toRequestBody() {
@@ -18,8 +14,7 @@ class GrandChildrenInfoModel {
   }
 
   @override
-  String toString() =>
-      'GrandChildrenInfoModel(submitted: $submitted, grandChildren: $grandChildren)';
+  String toString() => 'GrandChildrenInfoModel( grandChildren: $grandChildren)';
 }
 
 class GrandChildInfoModel {

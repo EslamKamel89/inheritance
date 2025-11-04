@@ -41,7 +41,7 @@ class _DaughtersCountWidgetState extends State<DaughtersCountWidget> {
                     return;
                   }
                   state.daughtersCount = int.parse(val);
-                  controller.changeStep(InheritanceEnum.isSisters);
+                  controller.changeStep(InheritanceEnum.grandChildrenInfo);
                 },
                 handleBack: () {
                   state.daughtersCount = null;

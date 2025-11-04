@@ -17,7 +17,7 @@ class InheritanceState {
   bool? isChildren;
   int? sonsCount;
   int? daughtersCount;
-  GrandChildrenInfoModel? grandChildren;
+  GrandChildrenInfoModel? grandChildrenInfo;
   bool? isSisters;
   int? sistersCount;
   bool? isBrothers;
@@ -39,7 +39,7 @@ class InheritanceState {
     this.isChildren,
     this.sonsCount,
     this.daughtersCount,
-    this.grandChildren,
+    this.grandChildrenInfo,
     this.isSisters,
     this.sistersCount,
     this.isBrothers,
@@ -63,7 +63,7 @@ class InheritanceState {
     bool? isChildren,
     int? sonsCount,
     int? daughtersCount,
-    GrandChildrenInfoModel? grandChildren,
+    GrandChildrenInfoModel? grandChildrenInfo,
     bool? isSisters,
     int? sistersCount,
     bool? isBrothers,
@@ -86,7 +86,7 @@ class InheritanceState {
       isChildren: isChildren ?? this.isChildren,
       sonsCount: sonsCount ?? this.sonsCount,
       daughtersCount: daughtersCount ?? this.daughtersCount,
-      grandChildren: grandChildren ?? this.grandChildren,
+      grandChildrenInfo: grandChildrenInfo ?? this.grandChildrenInfo,
       isSisters: isSisters ?? this.isSisters,
       sistersCount: sistersCount ?? this.sistersCount,
       isBrothers: isBrothers ?? this.isBrothers,
@@ -111,7 +111,7 @@ class InheritanceState {
       'isChildren': isChildren,
       'sonsCount': sonsCount,
       'daughtersCount': daughtersCount,
-      'grandchildrenInfo': grandChildren?.toRequestBody() ?? [],
+      'grandchildrenInfo': grandChildrenInfo?.toRequestBody() ?? [],
       'isSisters': isSisters,
       'sistersCount': sistersCount,
       'isBrothers': isBrothers,
@@ -121,6 +121,6 @@ class InheritanceState {
 
   @override
   String toString() {
-    return 'InheritanceState(currentStep: $currentStep, totalAmount: $totalAmount, isWasiyat: $isWasiyat, wasiyatAmount: $wasiyatAmount, isLoan: $isLoan, loanAmount: $loanAmount, isUnborn: $isUnborn, yourRelation: $yourRelation, deceasedGender: $deceasedGender, maleDeceasedStatus: $maleDeceasedStatus, femaleDeceasedStatus: $femaleDeceasedStatus, isFatherAlive: $isFatherAlive, isMotherAlive: $isMotherAlive, isChildren: $isChildren, sonsCount: $sonsCount, daughersCount: $daughtersCount, isSisters: $isSisters, sistersCount: $sistersCount, isBrothers: $isBrothers, brothersCount: $brothersCount)';
+    return 'InheritanceState(currentStep: $currentStep, totalAmount: $totalAmount, isWasiyat: $isWasiyat, wasiyatAmount: $wasiyatAmount, isLoan: $isLoan, loanAmount: $loanAmount, isUnborn: $isUnborn, yourRelation: $yourRelation, deceasedGender: $deceasedGender, maleDeceasedStatus: $maleDeceasedStatus, femaleDeceasedStatus: $femaleDeceasedStatus, isFatherAlive: $isFatherAlive, isMotherAlive: $isMotherAlive, isChildren: $isChildren, sonsCount: $sonsCount, daughersCount: $daughtersCount,grandChildrenInfo: $grandChildrenInfo, isSisters: $isSisters, sistersCount: $sistersCount, isBrothers: $isBrothers, brothersCount: $brothersCount)';
   }
 }
