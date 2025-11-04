@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:inheritance/core/themes/themedata.dart';
 import 'package:inheritance/core/widgets/sizer.dart';
 import 'package:inheritance/features/inheritance/cubits/inheritance/inheritance_cubit.dart';
 import 'package:inheritance/features/inheritance/enums/gender_enum.dart';
 import 'package:inheritance/features/inheritance/models/grand_child_info_model.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/back_button.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/custom_image.dart';
+import 'package:inheritance/features/inheritance/presentation/widgets/inheritance_grandchild_input_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/next_button.dart';
 import 'package:inheritance/utils/styles/styles.dart';
 
@@ -105,49 +105,5 @@ class _InheritanceGrandChildrenInputWidgetState extends State<InheritanceGrandCh
       );
     }
     // pr(state.grandChildrenInfo, 'grandchildrenInfo');
-  }
-}
-
-class InheritanceGrandChildInputWidget extends StatefulWidget {
-  const InheritanceGrandChildInputWidget({super.key, required this.grandChild});
-  final GrandChildInfoModel grandChild;
-  @override
-  State<InheritanceGrandChildInputWidget> createState() => _InheritanceGrandChildInputWidgetState();
-}
-
-class _InheritanceGrandChildInputWidgetState extends State<InheritanceGrandChildInputWidget> {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text("gender: ${widget.grandChild.gender?.display}"),
-        TextFormField(
-          initialValue: '0',
-          onChanged: (v) {
-            widget.grandChild.grandChildrenMalesCount = int.parse(v);
-          },
-          keyboardType: TextInputType.number,
-          decoration: InputDecoration(
-            hintText: 'Enter grandchildren males count',
-            filled: true,
-            fillColor: Colors.white,
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(10)),
-              borderSide: BorderSide(color: lightClr.primaryColor),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(10)),
-              borderSide: BorderSide(color: lightClr.primaryColor),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(10)),
-              borderSide: BorderSide(color: lightClr.primaryColorDark),
-            ),
-            labelStyle: TextStyle(color: Colors.black54, fontSize: 16),
-            hintStyle: TextStyle(color: Colors.black38, fontSize: 14),
-          ),
-        ),
-      ],
-    );
   }
 }

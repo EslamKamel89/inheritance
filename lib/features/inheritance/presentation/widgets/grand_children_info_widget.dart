@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:inheritance/core/heleprs/print_helper.dart';
 import 'package:inheritance/features/inheritance/cubits/inheritance/inheritance_cubit.dart';
 import 'package:inheritance/features/inheritance/enums/inheritance.dart';
-import 'package:inheritance/features/inheritance/models/grand_child_info_model.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/default_animation.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/inheritance_grandchildren_input_widget.dart';
 import 'package:inheritance/utils/assets/assets.dart';
@@ -35,11 +35,7 @@ class _GrandChildrenInfoWidgetState extends State<GrandChildrenInfoWidget> {
               child: InheritanceGrandChildrenInputWidget(
                 image: AssetsData.grandchildren,
                 handleSubmit: () {
-                  // if (val.isEmpty) {
-                  //   showSnackbar('Error', 'Please Enter grandchildren Count', true);
-                  //   return;
-                  // }
-                  state.grandChildrenInfo = GrandChildrenInfoModel(grandChildren: []);
+                  pr(controller.state.grandChildrenInfo, 'grandChildrenInfo');
                   controller.changeStep(InheritanceEnum.isSisters);
                 },
                 handleBack: () {
