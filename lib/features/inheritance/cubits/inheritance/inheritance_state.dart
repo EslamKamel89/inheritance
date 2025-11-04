@@ -17,6 +17,7 @@ class InheritanceState {
   bool? isChildren;
   int? sonsCount;
   int? daughtersCount;
+  GrandChildrenInfoModel? grandChildren;
   bool? isSisters;
   int? sistersCount;
   bool? isBrothers;
@@ -38,6 +39,7 @@ class InheritanceState {
     this.isChildren,
     this.sonsCount,
     this.daughtersCount,
+    this.grandChildren,
     this.isSisters,
     this.sistersCount,
     this.isBrothers,
@@ -60,7 +62,8 @@ class InheritanceState {
     bool? isMotherAlive,
     bool? isChildren,
     int? sonsCount,
-    int? daughersCount,
+    int? daughtersCount,
+    GrandChildrenInfoModel? grandChildren,
     bool? isSisters,
     int? sistersCount,
     bool? isBrothers,
@@ -82,7 +85,8 @@ class InheritanceState {
       isMotherAlive: isMotherAlive ?? this.isMotherAlive,
       isChildren: isChildren ?? this.isChildren,
       sonsCount: sonsCount ?? this.sonsCount,
-      daughtersCount: daughersCount ?? daughtersCount,
+      daughtersCount: daughtersCount ?? this.daughtersCount,
+      grandChildren: grandChildren ?? this.grandChildren,
       isSisters: isSisters ?? this.isSisters,
       sistersCount: sistersCount ?? this.sistersCount,
       isBrothers: isBrothers ?? this.isBrothers,
@@ -91,33 +95,6 @@ class InheritanceState {
   }
 
   Map<String, dynamic> toRequestBody() {
-    // return {
-    //   "totalAmount": 150000.0,
-    //   "isWasiyat": false,
-    //   "wasiyatAmount": 0.0,
-    //   "isLoan": false,
-    //   "loanAmount": 0.0,
-    //   "isUnborn": false,
-
-    //   // Relation enum → allowed values: "husband", "wife", "none"
-    //   "yourRelation": null,
-
-    //   // GenderEnum enum → allowed values: "male", "female"
-    //   "deceasedGender": "female",
-
-    //   "maleDeceasedStatus": false,
-    //   "femaleDeceasedStatus": false,
-    //   "isFatherAlive": false,
-    //   "isMotherAlive": false,
-    //   "isChildren": true,
-    //   "sonsCount": 2,
-    //   "daughtersCount": 2,
-    //   "isSisters": true,
-    //   "sistersCount": 1,
-    //   "isBrothers": true,
-    //   "brothersCount": 2,
-    // };
-
     return {
       'totalAmount': totalAmount,
       'isWasiyat': isWasiyat,
@@ -134,6 +111,7 @@ class InheritanceState {
       'isChildren': isChildren,
       'sonsCount': sonsCount,
       'daughtersCount': daughtersCount,
+      'grandchildrenInfo': grandChildren?.toRequestBody() ?? [],
       'isSisters': isSisters,
       'sistersCount': sistersCount,
       'isBrothers': isBrothers,

@@ -27,11 +27,11 @@ class _DaughtersCountWidgetState extends State<DaughtersCountWidget> {
   Widget build(BuildContext context) {
     return BlocBuilder<InheritanceCubit, InheritanceState>(
       buildWhen: (previous, current) {
-        return previous.currentStep == InheritanceEnum.daughersCount ||
-            current.currentStep == InheritanceEnum.daughersCount;
+        return previous.currentStep == InheritanceEnum.daughtersCount ||
+            current.currentStep == InheritanceEnum.daughtersCount;
       },
       builder: (context, state) {
-        return controller.state.currentStep == InheritanceEnum.daughersCount
+        return controller.state.currentStep == InheritanceEnum.daughtersCount
             ? DefaultAnimation(
               child: InheritanceTextInputWidget(
                 image: AssetsData.daughter,

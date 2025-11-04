@@ -5,6 +5,7 @@ import 'package:inheritance/features/inheritance/cubits/result/result_cubit.dart
 import 'package:inheritance/features/inheritance/enums/gender_enum.dart';
 import 'package:inheritance/features/inheritance/enums/inheritance.dart';
 import 'package:inheritance/features/inheritance/enums/relations_enum.dart';
+import 'package:inheritance/features/inheritance/models/grand_child_info_model.dart';
 
 part 'inheritance_state.dart';
 

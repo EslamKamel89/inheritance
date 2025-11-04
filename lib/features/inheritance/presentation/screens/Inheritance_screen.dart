@@ -7,6 +7,7 @@ import 'package:inheritance/features/inheritance/presentation/widgets/brothers_c
 import 'package:inheritance/features/inheritance/presentation/widgets/daughters_count_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/deceassed_gender_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/female_deceased_status.dart';
+import 'package:inheritance/features/inheritance/presentation/widgets/grand_children_info_widget.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/is_brothers.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/is_children.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/is_father_alive.dart';
@@ -105,6 +106,7 @@ class InheritanceContent extends StatelessWidget {
         IsSistersWidget(),
         SonsCountWidget(),
         DaughtersCountWidget(),
+        GrandChildrenInfoWidget(),
         SistersCountWidget(),
         IsBrothersWidget(),
         BrothersCountWidget(),
