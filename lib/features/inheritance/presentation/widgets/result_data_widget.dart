@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:inheritance/core/themes/themedata.dart';
+import 'package:inheritance/features/inheritance/models/grand_children_response_model/grand_children_response_model.dart';
+import 'package:inheritance/features/inheritance/presentation/widgets/grand_children_bottom_sheet.dart';
 
 class ResultDataWidget extends StatelessWidget {
   final Map<String, dynamic> data;
@@ -38,7 +40,19 @@ class ResultDataWidget extends StatelessWidget {
                 ...List.generate(entries.length, (i) {
                   final e = entries[i];
                   final valueStr = _valueToDisplayString(e.value);
-
+                  if (e.key == 'GrandChildren') {
+                    return _TableRowItem(
+                          label: "Grand Children",
+                          value: "Details",
+                          palette: palette,
+                          showDivider: i != entries.length - 1,
+                          data: e.value,
+                          showDetails: true,
+                        )
+                        .animate(delay: (80 * i).ms)
+                        .fadeIn(duration: 350.ms, curve: Curves.easeOut)
+                        .slideY(begin: 0.2, end: 0, duration: 400.ms, curve: Curves.easeOut);
+                  }
                   return _TableRowItem(
                         label: e.key,
                         value: valueStr,
@@ -72,13 +86,16 @@ class _TableRowItem extends StatelessWidget {
     required this.value,
     required this.palette,
     required this.showDivider,
+    this.showDetails = false,
+    this.data,
   });
 
   final String label;
   final String value;
   final Clr palette;
   final bool showDivider;
-
+  final bool showDetails;
+  final dynamic data;
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
@@ -91,16 +108,23 @@ class _TableRowItem extends StatelessWidget {
       children: [
         InkWell(
           onTap: () async {
-            await Clipboard.setData(ClipboardData(text: value));
-            ScaffoldMessenger.of(context).hideCurrentSnackBar();
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text('Copied "$value"'),
-                backgroundColor: palette.primaryColorDark,
-                behavior: SnackBarBehavior.floating,
-                duration: const Duration(milliseconds: 1000),
-              ),
-            );
+            if (showDetails) {
+              showGrandchildrenBottomSheet(
+                context,
+                (data as List).map((json) => GrandChildrenResponseModel.fromJson(json)).toList(),
+              );
+            } else {
+              await Clipboard.setData(ClipboardData(text: value));
+              ScaffoldMessenger.of(context).hideCurrentSnackBar();
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('Copied "$value"'),
+                  backgroundColor: palette.primaryColorDark,
+                  behavior: SnackBarBehavior.floating,
+                  duration: const Duration(milliseconds: 1000),
+                ),
+              );
+            }
           },
           splashColor: palette.primaryColorLight.withOpacity(0.2),
           highlightColor: palette.primaryColor.withOpacity(0.08),
@@ -112,13 +136,35 @@ class _TableRowItem extends StatelessWidget {
                 Expanded(flex: 1, child: Text(label, style: labelStyle, softWrap: true)),
                 Expanded(
                   flex: 1,
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: Padding(
-                      padding: EdgeInsets.only(right: 30),
-                      child: Text(value, style: valueStyle, softWrap: true),
-                    ),
-                  ),
+                  child:
+                      showDetails
+                          ? Align(
+                            alignment: Alignment.centerRight,
+                            child: Padding(
+                              padding: EdgeInsets.only(right: 30),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Colors.green,
+                                ),
+                                alignment: Alignment.center,
+                                padding: EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+                                child: Text(
+                                  value,
+                                  style: valueStyle.copyWith(color: Colors.white),
+                                  softWrap: true,
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ),
+                          )
+                          : Align(
+                            alignment: Alignment.centerRight,
+                            child: Padding(
+                              padding: EdgeInsets.only(right: 30),
+                              child: Text(value, style: valueStyle, softWrap: true),
+                            ),
+                          ),
                 ),
               ],
             ),
