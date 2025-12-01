@@ -103,7 +103,7 @@ class _InheritanceGrandChildInputWidgetState extends State<InheritanceGrandChild
                         widget.grandChild.status = v ? 'alive' : 'dead';
                       });
                     },
-                    activeThumbColor: lightClr.primaryColor,
+                    // activeThumbColor: lightClr.primaryColor,
                     inactiveThumbColor: theme.colorScheme.error,
                     inactiveTrackColor: theme.colorScheme.error.withOpacity(0.25),
                   ),
