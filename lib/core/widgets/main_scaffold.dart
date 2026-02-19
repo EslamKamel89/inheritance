@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:inheritance/core/extensions/context-extensions.dart';
 import 'package:inheritance/core/widgets/default_screen_padding.dart';
+import 'package:inheritance/core/widgets/language_selector.dart';
 
 class MainScaffold extends StatelessWidget {
   const MainScaffold({
@@ -33,20 +34,13 @@ class MainScaffold extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: hideAppBar ? Colors.transparent : null,
           title: titleWidget ?? Text(appBarTitle ?? ''),
-          // foregroundColor: hideAppBar
-          //     ? isDark
-          //         ? Colors.white
-          //         : Colors.black
-          //     : null,
           foregroundColor: hideAppBar ? context.secondaryHeaderColor : null,
-          // foregroundColor: context.secondaryHeaderColor,
+          actions: [LanguageSelector()],
         ),
         bottomNavigationBar: bottomNavigationBar,
         resizeToAvoidBottomInset: resizeToAvoidBottomInset,
-        // drawer: drawer,
         endDrawer: drawer,
         floatingActionButton: floatingActionButton,
-        // floatingActionButtonLocation: floatingActionButton == null ? null : FloatingActionButtonLocation.centerDocked,
         body: DefaultScreenPadding(child: child),
       ),
     );
