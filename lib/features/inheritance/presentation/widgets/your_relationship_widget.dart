@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:inheritance/core/services/localization/localization_extension.dart';
 import 'package:inheritance/features/inheritance/cubits/inheritance/inheritance_cubit.dart';
 import 'package:inheritance/features/inheritance/enums/inheritance.dart';
 import 'package:inheritance/features/inheritance/enums/relations_enum.dart';
@@ -38,7 +39,7 @@ class _YourRelationshipWidgetState extends State<YourRelationshipWidget> {
                 displayInRow: false,
                 options: Relation.values,
                 image: AssetsData.husbandAndWife,
-                label: "What is your relation with the deceased?",
+                label: "relation_question".t(),
                 handleAnswer: (dynamic ans) {
                   final answer = ans as Relation?;
                   if (answer == null) return;

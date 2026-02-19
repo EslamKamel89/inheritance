@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:inheritance/core/enums/response_type.dart';
 import 'package:inheritance/core/extensions/context-extensions.dart';
 import 'package:inheritance/core/models/api_response_model.dart';
+import 'package:inheritance/core/services/localization/localization_extension.dart';
 import 'package:inheritance/core/themes/themedata.dart';
 import 'package:inheritance/core/widgets/sizer.dart';
 import 'package:inheritance/features/inheritance/cubits/inheritance/inheritance_cubit.dart';
@@ -54,7 +55,7 @@ class _ResultWidgetState extends State<ResultWidget> {
                         onTap: () {
                           controller.reset();
                         },
-                        title: 'Start Again',
+                        title: "start_again".t(),
                       ),
                     ],
                   ),

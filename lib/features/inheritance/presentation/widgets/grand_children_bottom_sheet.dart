@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:inheritance/core/services/localization/localization_extension.dart';
 import 'package:inheritance/features/inheritance/models/grand_children_response_model/grand_children_response_model.dart';
 
 Future<void> showGrandchildrenBottomSheet(
@@ -62,7 +63,7 @@ class _GrandchildrenSheet extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                                'Grandchildren overview',
+                                "grandchildren_overview".t(),
                                 style: Theme.of(
                                   context,
                                 ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
@@ -72,7 +73,7 @@ class _GrandchildrenSheet extends StatelessWidget {
                               .slideY(begin: 0.1, duration: 350.ms),
                           const SizedBox(height: 4),
                           Text(
-                            '${items.length} records',
+                            '${items.length} ${"records".t()}',
                             style: Theme.of(context).textTheme.bodySmall,
                           ).animate().fadeIn(delay: 140.ms, duration: 350.ms),
                         ],
@@ -96,7 +97,7 @@ class _GrandchildrenSheet extends StatelessWidget {
                                 Icon(Icons.inbox_rounded, size: 48, color: Colors.grey.shade400),
                                 const SizedBox(height: 8),
                                 Text(
-                                  'No grandchildren found',
+                                  "no_grandchildren".t(),
                                   style: Theme.of(context).textTheme.bodyLarge,
                                 ),
                               ],
@@ -129,7 +130,7 @@ class _GrandchildrenSheet extends StatelessWidget {
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                             backgroundColor: Colors.green.shade600,
                           ),
-                          child: const Text('Close'),
+                          child: Text("close".t()),
                         ).animate().fadeIn(delay: 200.ms),
                       ),
                     ],
@@ -206,7 +207,7 @@ class _GrandchildCard extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Males', style: Theme.of(context).textTheme.bodySmall),
+                            Text("males".t(), style: Theme.of(context).textTheme.bodySmall),
                             const SizedBox(height: 4),
                             Text(
                               '${item.grandChildrenMalesCount ?? 0}',
@@ -215,7 +216,7 @@ class _GrandchildCard extends StatelessWidget {
                               ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w700),
                             ),
                             const SizedBox(height: 8),
-                            Text('Females', style: Theme.of(context).textTheme.bodySmall),
+                            Text("females".t(), style: Theme.of(context).textTheme.bodySmall),
                             const SizedBox(height: 4),
                             Text(
                               '${item.grandChildrenFemalesCount ?? 0}',
@@ -231,7 +232,7 @@ class _GrandchildCard extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Men share', style: Theme.of(context).textTheme.bodySmall),
+                            Text("men_share".t(), style: Theme.of(context).textTheme.bodySmall),
                             const SizedBox(height: 4),
                             Text(
                               (item.share?.men?.ceil() ?? 0).toString(),
@@ -240,7 +241,7 @@ class _GrandchildCard extends StatelessWidget {
                               ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w700),
                             ),
                             const SizedBox(height: 8),
-                            Text('Women share', style: Theme.of(context).textTheme.bodySmall),
+                            Text("women_share".t(), style: Theme.of(context).textTheme.bodySmall),
                             const SizedBox(height: 4),
                             Text(
                               (item.share?.women?.ceil() ?? 0).toString(),
@@ -257,7 +258,7 @@ class _GrandchildCard extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
-                            Text('Total', style: Theme.of(context).textTheme.bodySmall),
+                            Text("total".t(), style: Theme.of(context).textTheme.bodySmall),
                             const SizedBox(height: 4),
                             Text(
                               '${item.totalShare?.ceil() ?? 0}',

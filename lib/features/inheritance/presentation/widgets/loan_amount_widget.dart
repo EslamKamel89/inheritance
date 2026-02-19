@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:inheritance/core/heleprs/snackbar.dart';
+import 'package:inheritance/core/services/localization/localization_extension.dart';
 import 'package:inheritance/features/inheritance/cubits/inheritance/inheritance_cubit.dart';
 import 'package:inheritance/features/inheritance/enums/inheritance.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/default_animation.dart';
@@ -37,7 +38,7 @@ class _LoanAmountWidgetState extends State<LoanAmountWidget> {
                 image: AssetsData.loan,
                 handleSubmit: (String val) {
                   if (val.isEmpty) {
-                    showSnackbar('Error', 'Please Enter Loan Amount', true);
+                    showSnackbar('Error', "enter_loan_amount".t(), true);
                     return;
                   }
                   state.loanAmount = double.parse(val);
@@ -47,9 +48,8 @@ class _LoanAmountWidgetState extends State<LoanAmountWidget> {
                   state.loanAmount = null;
                   controller.changeStep(InheritanceEnum.isLoan);
                 },
-                label:
-                    'Please enter the total loan amount, to be returned on behalf of the deceased?',
-                placeholder: 'total Loan amount” ',
+                label: "loan_amount_question".t(),
+                placeholder: "enter_loan_amount".t(),
                 textInputType: TextInputType.number,
               ),
             )

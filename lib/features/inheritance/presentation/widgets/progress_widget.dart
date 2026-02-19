@@ -3,6 +3,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:inheritance/core/extensions/context-extensions.dart';
+import 'package:inheritance/core/services/localization/localization_extension.dart';
 import 'package:inheritance/core/widgets/sizer.dart';
 import 'package:inheritance/features/inheritance/cubits/inheritance/inheritance_cubit.dart';
 import 'package:inheritance/features/inheritance/enums/gender_enum.dart';
@@ -33,7 +34,7 @@ class _ProgressWidgetState extends State<ProgressWidget> {
     int i = 0;
     if (state.totalAmount != null) {
       result.add(
-        _progressItem('Total worth?', state.totalAmount?.toString(), AssetsData.logo, i++),
+        _progressItem("total_amount".t(), state.totalAmount?.toString(), AssetsData.logo, i++),
       );
     } else {
       result.add(_initalStep());
@@ -41,7 +42,7 @@ class _ProgressWidgetState extends State<ProgressWidget> {
     if (state.isWasiyat == true && state.wasiyatAmount != null) {
       result.add(
         _progressItem(
-          "Will or Wasiyat amount?",
+          "wasiyat_amount".t(),
           state.wasiyatAmount?.toString(),
           AssetsData.contract,
           i++,
@@ -49,15 +50,17 @@ class _ProgressWidgetState extends State<ProgressWidget> {
       );
     }
     if (state.isLoan == true && state.loanAmount != null) {
-      result.add(_progressItem("Loan Amount?", state.loanAmount?.toString(), AssetsData.loan, i++));
+      result.add(
+        _progressItem("loan_amount".t(), state.loanAmount?.toString(), AssetsData.loan, i++),
+      );
     }
     if (state.yourRelation != null) {
       result.add(
         _progressItem(
-          "Relation with deceased?",
+          "relation_deceased".t(),
           state.yourRelation != Relation.none
-              ? state.yourRelation?.display
-              : "Not a hunsband nor a wife",
+              ? state.yourRelation?.display.t()
+              : "none_of_them".t(),
           AssetsData.husbandAndWife,
           i++,
           isColumn: true,
@@ -67,7 +70,7 @@ class _ProgressWidgetState extends State<ProgressWidget> {
     if (state.deceasedGender != null) {
       result.add(
         _progressItem(
-          "Deceased's gender?",
+          "deceased_gender".t(),
           state.deceasedGender?.display,
           state.deceasedGender == GenderEnum.male ? AssetsData.husband : AssetsData.wife,
           i++,
@@ -78,8 +81,8 @@ class _ProgressWidgetState extends State<ProgressWidget> {
     if (state.maleDeceasedStatus != null) {
       result.add(
         _progressItem(
-          "Deceased's wife alive?",
-          state.maleDeceasedStatus == true ? 'Yes' : 'No',
+          "wife_alive".t(),
+          state.maleDeceasedStatus == true ? "yes".t() : "no".t(),
           AssetsData.wife,
           i++,
         ),
@@ -88,8 +91,8 @@ class _ProgressWidgetState extends State<ProgressWidget> {
     if (state.femaleDeceasedStatus != null) {
       result.add(
         _progressItem(
-          "Deceased's husband alive?",
-          state.maleDeceasedStatus == true ? 'Yes' : 'No',
+          "husband_alive".t(),
+          state.maleDeceasedStatus == true ? "yes".t() : "no".t(),
           AssetsData.husband,
           i++,
         ),
@@ -98,8 +101,8 @@ class _ProgressWidgetState extends State<ProgressWidget> {
     if (state.isFatherAlive != null) {
       result.add(
         _progressItem(
-          "Father still alive?",
-          state.isFatherAlive == true ? 'Yes' : 'No',
+          "father_alive".t(),
+          state.isFatherAlive == true ? "yes".t() : "no".t(),
           AssetsData.father,
           i++,
         ),
@@ -108,23 +111,25 @@ class _ProgressWidgetState extends State<ProgressWidget> {
     if (state.isMotherAlive != null) {
       result.add(
         _progressItem(
-          "Mother still alive?",
-          state.isMotherAlive == true ? 'Yes' : 'No',
+          "mother_alive".t(),
+          state.isMotherAlive == true ? "yes".t() : "no".t(),
           AssetsData.mother,
           i++,
         ),
       );
     }
     if (state.isChildren == false) {
-      result.add(_progressItem("Deceased has children?", 'No', AssetsData.children, i++));
+      result.add(_progressItem("children_exist".t(), 'no'.t(), AssetsData.children, i++));
     }
     if (state.sonsCount != null) {
-      result.add(_progressItem("Sons count?", state.sonsCount?.toString(), AssetsData.sons, i++));
+      result.add(
+        _progressItem("sons_count".t(), state.sonsCount?.toString(), AssetsData.sons, i++),
+      );
     }
     if (state.daughtersCount != null) {
       result.add(
         _progressItem(
-          "Daughers count?",
+          "daughters_count".t(),
           state.daughtersCount?.toString(),
           AssetsData.daughter,
           i++,
@@ -132,19 +137,24 @@ class _ProgressWidgetState extends State<ProgressWidget> {
       );
     }
     if (state.isSisters == false) {
-      result.add(_progressItem("Deceased has sisters?", 'No', AssetsData.sisters, i++));
+      result.add(_progressItem("sisters_exist".t(), 'no'.t(), AssetsData.sisters, i++));
     }
     if (state.sistersCount != null) {
       result.add(
-        _progressItem("Sisters count?", state.sistersCount?.toString(), AssetsData.sisters, i++),
+        _progressItem("sisters_count".t(), state.sistersCount?.toString(), AssetsData.sisters, i++),
       );
     }
     if (state.isBrothers == false) {
-      result.add(_progressItem("Deceased has brothers?", 'No', AssetsData.brothers, i++));
+      result.add(_progressItem("brothers_exist".t(), 'no'.t(), AssetsData.brothers, i++));
     }
     if (state.sistersCount != null) {
       result.add(
-        _progressItem("Brothers count?", state.brothersCount?.toString(), AssetsData.brothers, i++),
+        _progressItem(
+          "brothers_count".t(),
+          state.brothersCount?.toString(),
+          AssetsData.brothers,
+          i++,
+        ),
       );
     }
     result.add(SizedBox(height: 50));
@@ -156,7 +166,7 @@ class _ProgressWidgetState extends State<ProgressWidget> {
       height: 100.h,
       alignment: Alignment.center,
       child: txt(
-        'Please Enter total worth/amount left by deceased?',
+        "total_amount_question".t(),
         e: St.bold18,
         textAlign: TextAlign.center,
         c: Colors.white,

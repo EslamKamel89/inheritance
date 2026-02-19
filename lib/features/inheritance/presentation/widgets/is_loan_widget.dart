@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:inheritance/core/services/localization/localization_extension.dart';
 import 'package:inheritance/features/inheritance/cubits/inheritance/inheritance_cubit.dart';
 import 'package:inheritance/features/inheritance/enums/inheritance.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/default_animation.dart';
@@ -35,7 +36,7 @@ class _IsLoanWidgetState extends State<IsLoanWidget> {
             ? DefaultAnimation(
               child: InheritanceYesNoWidget(
                 image: AssetsData.loan,
-                label: "Is there any loan to be returned on behalf of the deceased?",
+                label: "loan_question".t(),
                 handleAnswer: (bool answer) {
                   Future.delayed(500.ms, () {
                     if (answer) {

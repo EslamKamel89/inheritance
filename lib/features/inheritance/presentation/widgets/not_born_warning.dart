@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inheritance/core/services/localization/localization_extension.dart';
 import 'package:inheritance/core/widgets/sizer.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/back_button.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/custom_image.dart';
@@ -17,17 +18,13 @@ class NotBornWarningWidget extends StatelessWidget {
         Sizer(),
         CustomImage(image: AssetsData.unbornBaby),
         Sizer(),
-        txt(
-          "Please use the calculator once the baby is born (brought to the world).",
-          e: St.bold20,
-          c: Colors.red,
-        ),
+        txt("use_after_birth".t(), e: St.bold20, c: Colors.red),
         Sizer(),
         Row(
           children: [
             CustomBackButton(onTap: handleBack),
             Sizer(),
-            CustomNextButton(onTap: handleStartAgain, title: 'Start Again'),
+            CustomNextButton(onTap: handleStartAgain, title: "start_again".t()),
           ],
         ),
       ],

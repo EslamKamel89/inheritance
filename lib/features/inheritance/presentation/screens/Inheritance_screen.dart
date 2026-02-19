@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:inheritance/core/extensions/context-extensions.dart';
@@ -32,6 +33,7 @@ class InheritanceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.locale;
     return Stack(
       children: [
         Container(width: context.width, height: context.height, color: Colors.white),

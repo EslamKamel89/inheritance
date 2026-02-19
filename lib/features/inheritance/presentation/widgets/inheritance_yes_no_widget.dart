@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inheritance/core/services/localization/localization_extension.dart';
 import 'package:inheritance/core/widgets/sizer.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/back_button.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/custom_image.dart';
@@ -41,7 +42,7 @@ class _InheritanceYesNoWidgetState extends State<InheritanceYesNoWidget> {
           builder: (context) {
             var widgets = [
               ListTile(
-                title: Text('NO'),
+                title: Text("no".t()),
                 leading: Radio<bool>(
                   value: false,
                   groupValue: selectedValue,
@@ -55,7 +56,7 @@ class _InheritanceYesNoWidgetState extends State<InheritanceYesNoWidget> {
               ),
               // Second radio button
               ListTile(
-                title: Text('YES'),
+                title: Text("yes".t()),
                 leading: Radio<bool>(
                   value: true,
                   groupValue: selectedValue,

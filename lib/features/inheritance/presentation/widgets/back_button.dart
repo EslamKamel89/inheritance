@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inheritance/core/extensions/context-extensions.dart';
+import 'package:inheritance/core/services/localization/localization_extension.dart';
 import 'package:inheritance/utils/styles/styles.dart';
 
 class CustomBackButton extends StatelessWidget {
@@ -17,7 +18,7 @@ class CustomBackButton extends StatelessWidget {
           color: context.secondaryHeaderColor,
           borderRadius: BorderRadius.circular(10),
         ),
-        child: txt(title ?? 'Back', e: St.bold20, c: Colors.white),
+        child: txt(title ?? "back".t(), e: St.bold20, c: Colors.white),
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:inheritance/core/heleprs/snackbar.dart';
+import 'package:inheritance/core/services/localization/localization_extension.dart';
 import 'package:inheritance/features/inheritance/cubits/inheritance/inheritance_cubit.dart';
 import 'package:inheritance/features/inheritance/enums/inheritance.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/default_animation.dart';
@@ -37,7 +38,7 @@ class _DaughtersCountWidgetState extends State<DaughtersCountWidget> {
                 image: AssetsData.daughter,
                 handleSubmit: (String val) {
                   if (val.isEmpty) {
-                    showSnackbar('Error', 'Please Enter Daughters Count', true);
+                    showSnackbar('Error', "please_enter_daughters".t(), true);
                     return;
                   }
                   state.daughtersCount = int.parse(val);
@@ -47,8 +48,8 @@ class _DaughtersCountWidgetState extends State<DaughtersCountWidget> {
                   state.daughtersCount = null;
                   controller.changeStep(InheritanceEnum.sonsCount);
                 },
-                label: 'How many daughter(s) of the deceased?',
-                placeholder: 'daughter(s) count',
+                label: "how_many_daughters".t(),
+                placeholder: "daughters_placeholder".t(),
                 textInputType: TextInputType.number,
               ),
             )

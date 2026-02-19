@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:inheritance/core/extensions/context-extensions.dart';
+import 'package:inheritance/core/services/localization/localization_extension.dart';
 import 'package:inheritance/utils/styles/styles.dart';
 
 class CustomNextButton extends StatelessWidget {
@@ -17,7 +18,7 @@ class CustomNextButton extends StatelessWidget {
           color: context.primaryColor,
           borderRadius: BorderRadius.circular(10),
         ),
-        child: txt(title ?? 'Next', e: St.bold20, c: Colors.white),
+        child: txt(title ?? "next".t(), e: St.bold20, c: Colors.white),
       ),
     );
   }

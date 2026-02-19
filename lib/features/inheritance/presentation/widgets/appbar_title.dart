@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:inheritance/core/services/localization/localization_extension.dart';
 import 'package:inheritance/features/inheritance/cubits/inheritance/inheritance_cubit.dart';
 import 'package:inheritance/features/inheritance/enums/inheritance.dart';
 import 'package:inheritance/utils/styles/styles.dart';
@@ -18,64 +19,64 @@ class _AppBarTitleState extends State<AppBarTitle> {
     String title = '';
     switch (controller.state.currentStep) {
       case InheritanceEnum.totalAmount:
-        title = "Bismillah, Let's Begin";
+        title = "bismillah_begin".t();
         break;
       case InheritanceEnum.isWasiyat:
-        title = "Any will written?";
+        title = "any_will_written".t();
         break;
       case InheritanceEnum.wasiyatAmount:
-        title = "Will or Wasiyat amount?";
+        title = "wasiyat_amount".t();
         break;
       case InheritanceEnum.isLoan:
-        title = "Loan to settle?";
+        title = "loan_settle".t();
         break;
       case InheritanceEnum.loanAmount:
-        title = "Loan Amount?";
+        title = "loan_amount".t();
         break;
       case InheritanceEnum.isUnborn:
-        title = "Any unborn baby?";
+        title = "any_unborn_baby".t();
         break;
       case InheritanceEnum.yourRelation:
-        title = "Relation with deceased?";
+        title = "relation_deceased".t();
         break;
       case InheritanceEnum.isFatherAlive:
-        title = "Father still alive?";
+        title = "father_alive".t();
         break;
       case InheritanceEnum.deceasedGender:
-        title = "Deceased's gender?";
+        title = "deceased_gender".t();
         break;
       case InheritanceEnum.maleDeceasedStatus:
-        title = "Deceased's wife alive?";
+        title = "wife_alive".t();
         break;
       case InheritanceEnum.femaleDeceasedStatus:
-        title = "Deceased's husband alive?";
+        title = "husband_alive".t();
         break;
       case InheritanceEnum.isMotherAlive:
-        title = "Mother still alive?";
+        title = "mother_alive".t();
         break;
       case InheritanceEnum.isChildren:
-        title = "Deceased's children?";
+        title = "children_exist".t();
         break;
       case InheritanceEnum.isSisters:
-        title = "Deceased's sisters?";
+        title = "sisters_exist".t();
         break;
       case InheritanceEnum.sonsCount:
-        title = "Sons count?";
+        title = "sons_count".t();
         break;
       case InheritanceEnum.daughtersCount:
-        title = "Daughters count?";
+        title = "daughters_count".t();
         break;
       case InheritanceEnum.sistersCount:
-        title = "Sisters count?";
+        title = "sisters_count".t();
         break;
       case InheritanceEnum.isBrothers:
-        title = "Deceased's brothers?";
+        title = "brothers_exist".t();
         break;
       case InheritanceEnum.brothersCount:
-        title = "Brtohers count?";
+        title = "brothers_count".t();
         break;
       case InheritanceEnum.result:
-        title = "Result";
+        title = "result".t();
         break;
       default:
     }

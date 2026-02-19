@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:inheritance/core/heleprs/print_helper.dart';
+import 'package:inheritance/core/services/localization/localization_extension.dart';
 import 'package:inheritance/features/inheritance/cubits/inheritance/inheritance_cubit.dart';
 import 'package:inheritance/features/inheritance/enums/inheritance.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/default_animation.dart';
@@ -46,8 +47,8 @@ class _GrandChildrenInfoWidgetState extends State<GrandChildrenInfoWidget> {
                     controller.changeStep(InheritanceEnum.isChildren);
                   }
                 },
-                label: 'How many grandchildren(s) of the deceased?',
-                placeholder: 'grandchildren(s) count',
+                label: "how_many_grandchildren".t(),
+                placeholder: "grandchildren_placeholder".t(),
               ),
             )
             : SizedBox();

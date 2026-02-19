@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:inheritance/core/services/localization/localization_extension.dart';
 import 'package:inheritance/features/inheritance/cubits/inheritance/inheritance_cubit.dart';
 import 'package:inheritance/features/inheritance/enums/inheritance.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/default_animation.dart';
@@ -35,7 +36,7 @@ class _MaleDeceasedStatusWidgetState extends State<MaleDeceasedStatusWidget> {
             ? DefaultAnimation(
               child: InheritanceYesNoWidget(
                 image: AssetsData.wife,
-                label: "Was the deceased married? If so, his wife is alive?",
+                label: "male_married_alive".t(),
                 handleAnswer: (bool answer) {
                   Future.delayed(500.ms, () {
                     state.maleDeceasedStatus = answer;

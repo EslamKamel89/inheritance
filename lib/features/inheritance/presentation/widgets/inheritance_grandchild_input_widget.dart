@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:inheritance/core/heleprs/parse_string_to_int.dart';
+import 'package:inheritance/core/services/localization/localization_extension.dart';
 import 'package:inheritance/core/themes/themedata.dart';
 import 'package:inheritance/features/inheritance/models/grand_child_info_model.dart';
 
@@ -63,7 +64,7 @@ class _InheritanceGrandChildInputWidgetState extends State<InheritanceGrandChild
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(
-                      'Child',
+                      "child".t(),
                       style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
                     ),
                   ),
@@ -78,7 +79,7 @@ class _InheritanceGrandChildInputWidgetState extends State<InheritanceGrandChild
 
               // Gender display
               _LabeledValue(
-                label: 'Gender',
+                label: "gender".t(),
                 value: widget.grandChild.gender?.display ?? '—',
                 icon: Icons.wc,
               ),
@@ -90,11 +91,11 @@ class _InheritanceGrandChildInputWidgetState extends State<InheritanceGrandChild
                   const Icon(Icons.heat_pump_rounded),
                   const SizedBox(width: 8),
                   Text(
-                    'Status',
+                    "status".t(),
                     style: theme.textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w600),
                   ),
                   const Spacer(),
-                  Text('Deceased', style: theme.textTheme.bodySmall),
+                  Text("deceased".t(), style: theme.textTheme.bodySmall),
                   Switch(
                     value: isAlive,
                     onChanged: (v) {
@@ -107,7 +108,7 @@ class _InheritanceGrandChildInputWidgetState extends State<InheritanceGrandChild
                     inactiveThumbColor: theme.colorScheme.error,
                     inactiveTrackColor: theme.colorScheme.error.withOpacity(0.25),
                   ),
-                  Text('Alive', style: theme.textTheme.bodySmall),
+                  Text("alive".t(), style: theme.textTheme.bodySmall),
                 ],
               ).animate().fadeIn(duration: 200.ms).slideY(begin: 0.2, curve: Curves.easeOut),
 
@@ -122,8 +123,8 @@ class _InheritanceGrandChildInputWidgetState extends State<InheritanceGrandChild
                     },
                     keyboardType: TextInputType.number,
                     decoration: _inputDecoration(
-                      label: 'Grandchildren (males)',
-                      hint: 'Enter number of male grandchildren',
+                      label: "grandchildren_males".t(),
+                      hint: "enter_male_grandchildren".t(),
                       icon: Icons.male,
                     ),
                   )
@@ -141,8 +142,8 @@ class _InheritanceGrandChildInputWidgetState extends State<InheritanceGrandChild
                     },
                     keyboardType: TextInputType.number,
                     decoration: _inputDecoration(
-                      label: 'Grandchildren (females)',
-                      hint: 'Enter number of female grandchildren',
+                      label: "grandchildren_females".t(),
+                      hint: "enter_female_grandchildren".t(),
                       icon: Icons.female,
                     ),
                   )

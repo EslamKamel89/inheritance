@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:inheritance/core/services/localization/localization_extension.dart';
 import 'package:inheritance/features/inheritance/cubits/inheritance/inheritance_cubit.dart';
 import 'package:inheritance/features/inheritance/enums/gender_enum.dart';
 import 'package:inheritance/features/inheritance/enums/inheritance.dart';
@@ -38,7 +39,7 @@ class _DeceasedGenderWidgetState extends State<DeceasedGenderWidget> {
                 displayInRow: true,
                 options: GenderEnum.values,
                 image: AssetsData.husbandAndWife,
-                label: "What is the gender of the deceased?",
+                label: "gender_question".t(),
                 handleAnswer: (dynamic ans) {
                   final answer = ans as GenderEnum?;
                   if (answer == null) return;

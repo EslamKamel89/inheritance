@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:inheritance/core/extensions/context-extensions.dart';
 import 'package:inheritance/core/router/app_routes_names.dart';
+import 'package:inheritance/core/services/localization/localization_service.dart';
 import 'package:inheritance/utils/assets/assets.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -14,10 +15,14 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(3000.ms, () {
-      Navigator.of(context).pushNamedAndRemoveUntil(AppRoutesNames.inheritanceScreen, (_) => false);
-    });
+    init();
     super.initState();
+  }
+
+  Future init() async {
+    await LocalizationService.instance.loadTranslations();
+    await Future.delayed(1000.ms);
+    Navigator.of(context).pushNamedAndRemoveUntil(AppRoutesNames.inheritanceScreen, (_) => false);
   }
 
   @override

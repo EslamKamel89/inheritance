@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:inheritance/core/heleprs/snackbar.dart';
+import 'package:inheritance/core/services/localization/localization_extension.dart';
 import 'package:inheritance/features/inheritance/cubits/inheritance/inheritance_cubit.dart';
 import 'package:inheritance/features/inheritance/enums/inheritance.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/default_animation.dart';
@@ -37,7 +38,7 @@ class _WasiyatAmountWidgetState extends State<WasiyatAmountWidget> {
                 image: AssetsData.contract,
                 handleSubmit: (String val) {
                   if (val.isEmpty) {
-                    showSnackbar('Error', 'Please Enter Wasiyat Amount', true);
+                    showSnackbar('Error', "enter_wasiyat".t(), true);
                     return;
                   }
                   state.wasiyatAmount = double.parse(val);
@@ -47,9 +48,8 @@ class _WasiyatAmountWidgetState extends State<WasiyatAmountWidget> {
                   state.wasiyatAmount = null;
                   controller.changeStep(InheritanceEnum.isWasiyat);
                 },
-                label:
-                    'Please enter the total amount mentioned on the WILL or Wasiyat by the deceased?',
-                placeholder: 'total “WILL” or “Wasiyat” ',
+                label: "wasiyat_amount_question".t(),
+                placeholder: "enter_wasiyat".t(),
                 textInputType: TextInputType.number,
               ),
             )

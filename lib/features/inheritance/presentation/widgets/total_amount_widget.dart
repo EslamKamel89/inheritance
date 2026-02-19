@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:inheritance/core/heleprs/snackbar.dart';
+import 'package:inheritance/core/services/localization/localization_extension.dart';
 import 'package:inheritance/features/inheritance/cubits/inheritance/inheritance_cubit.dart';
 import 'package:inheritance/features/inheritance/enums/inheritance.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/default_animation.dart';
@@ -37,15 +38,15 @@ class _TotalAmountWidgetState extends State<TotalAmountWidget> {
                 image: AssetsData.logo,
                 handleSubmit: (String val) {
                   if (val.isEmpty) {
-                    showSnackbar('Error', 'Please Enter Total Amount', true);
+                    showSnackbar('Error', "enter_total_amount".t(), true);
                     return;
                   }
                   state.totalAmount = double.parse(val);
                   controller.changeStep(InheritanceEnum.isWasiyat);
                 },
                 // handleBack: () {},
-                label: 'What is the total worth/amount left by deceased?',
-                placeholder: 'total worth/amount',
+                label: "total_amount_question".t(),
+                placeholder: "enter_total_amount".t(),
                 textInputType: TextInputType.number,
               ),
             )

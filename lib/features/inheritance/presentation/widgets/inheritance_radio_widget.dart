@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inheritance/core/services/localization/localization_extension.dart';
 import 'package:inheritance/core/widgets/sizer.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/back_button.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/custom_image.dart';
@@ -44,7 +45,7 @@ class _InheritanceRadioWidgetState<T> extends State<InheritanceRadioWidget> {
             var widgets =
                 widget.options.map((e) {
                   return ListTile(
-                    title: Text(e.display),
+                    title: Text((e.display as String).t()),
                     leading: Radio<T>(
                       value: e,
                       groupValue: selectedValue,
