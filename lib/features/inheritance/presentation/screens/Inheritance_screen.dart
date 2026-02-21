@@ -90,6 +90,7 @@ class InheritanceContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // LocalizationService.instance.loadTranslations();
     return Column(
       children: [
         TotalAmountWidget(),

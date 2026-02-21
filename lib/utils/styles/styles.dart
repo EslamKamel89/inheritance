@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 enum St {
   reg12,
@@ -50,9 +49,10 @@ Text txt(
   String? f,
   Color? c,
   int? maxLines,
-  TextStyle Function()? googleFontCallback = GoogleFonts.notoKufiArabic,
+  // TextStyle Function()? googleFontCallback = GoogleFonts.notoKufiArabic,
+  TextStyle Function()? googleFontCallback,
   TextAlign? textAlign,
-  double? height = 1,
+  double? height,
 }) {
   s = s ?? 16;
   w = FontWeight.normal;

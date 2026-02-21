@@ -41,6 +41,13 @@ class _ResultWidgetState extends State<ResultWidget> {
                   Sizer(height: 30),
                   Row(
                     children: [
+                      CustomNextButton(
+                        onTap: () {
+                          controller.reset();
+                        },
+                        title: "start_again".t(),
+                      ),
+                      Sizer(),
                       CustomBackButton(
                         onTap: () {
                           if (state.brothersCount != null) {
@@ -49,13 +56,6 @@ class _ResultWidgetState extends State<ResultWidget> {
                             controller.changeStep(InheritanceEnum.isBrothers);
                           }
                         },
-                      ),
-                      Sizer(),
-                      CustomNextButton(
-                        onTap: () {
-                          controller.reset();
-                        },
-                        title: "start_again".t(),
                       ),
                     ],
                   ),

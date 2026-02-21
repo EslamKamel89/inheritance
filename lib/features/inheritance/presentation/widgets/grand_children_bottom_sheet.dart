@@ -183,7 +183,7 @@ class _GrandchildCard extends StatelessWidget {
                       children: [
                         Flexible(
                           child: Text(
-                            item.gender ?? 'Unknown',
+                            item.gender?.toLowerCase().t() ?? 'Unknown',
                             style: Theme.of(
                               context,
                             ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
@@ -192,7 +192,7 @@ class _GrandchildCard extends StatelessWidget {
                         const SizedBox(width: 8),
                         Chip(
                           visualDensity: VisualDensity.compact,
-                          label: Text(item.status ?? '—'),
+                          label: Text(item.status?.toLowerCase().t() ?? '—'),
                         ).animate().fadeIn(delay: 80.ms),
                       ],
                     ),

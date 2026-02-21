@@ -16,7 +16,7 @@ class LocalizationService {
     final api = serviceLocator<ApiConsumer>();
     try {
       final res = await api.get(EndPoint.translates);
-      // _translations = _fakeBackendResponse;
+      // _translations = _fakeBackendResponse();
       _translations = res;
     } catch (e) {
       String errorMsg = 'Unkwon Error Occured';
@@ -33,7 +33,7 @@ class LocalizationService {
     return entry[locale] ?? key;
   }
 
-  final _fakeBackendResponse = {
+  _fakeBackendResponse() => {
     "total_amount_question": {
       "en": "What is the total worth/amount left by the deceased?",
       "ar": "ما هي القيمة الإجمالية للتركة التي خلّفها المتوفّى؟",
@@ -228,5 +228,9 @@ class LocalizationService {
       "ar": "كم عدد أخوات المتوفى؟",
     },
     "total_amount": {"en": "total amount", "ar": "إجمالي المبلغ"},
+    "male": {"en": "Male", "ar": "ذكر"},
+    "female": {"en": "Female", "ar": "أنثي"},
+    "details": {"en": "Details", "ar": "التفاصيل"},
+    "grandchildren": {"en": "Grand Children", "ar": "الأحفاد"},
   };
 }

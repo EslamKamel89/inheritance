@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:inheritance/core/services/localization/localization_extension.dart';
 import 'package:inheritance/core/themes/themedata.dart';
 import 'package:inheritance/features/inheritance/models/grand_children_response_model/grand_children_response_model.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/grand_children_bottom_sheet.dart';
@@ -42,8 +43,8 @@ class ResultDataWidget extends StatelessWidget {
                   final valueStr = _valueToDisplayString(e.value);
                   if (e.key == 'GrandChildren') {
                     return _TableRowItem(
-                          label: "Grand Children",
-                          value: "Details",
+                          label: "grandchildren".t(),
+                          value: "details".t(),
                           palette: palette,
                           showDivider: i != entries.length - 1,
                           data: e.value,

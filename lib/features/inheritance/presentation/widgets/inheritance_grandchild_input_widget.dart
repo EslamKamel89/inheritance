@@ -80,7 +80,7 @@ class _InheritanceGrandChildInputWidgetState extends State<InheritanceGrandChild
               // Gender display
               _LabeledValue(
                 label: "gender".t(),
-                value: widget.grandChild.gender?.display ?? '—',
+                value: widget.grandChild.gender?.display.toLowerCase().t() ?? '—',
                 icon: Icons.wc,
               ),
 
@@ -205,7 +205,7 @@ class _StatusChip extends StatelessWidget {
           Icon(isAlive ? Icons.favorite : Icons.heart_broken, size: 16, color: fg),
           const SizedBox(width: 6),
           Text(
-            isAlive ? 'Alive' : 'Deceased',
+            isAlive ? 'alive'.t() : 'deceased'.t(),
             style: TextStyle(color: fg, fontWeight: FontWeight.w700, letterSpacing: 0.2),
           ),
         ],

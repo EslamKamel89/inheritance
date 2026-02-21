@@ -42,20 +42,6 @@ class _InheritanceYesNoWidgetState extends State<InheritanceYesNoWidget> {
           builder: (context) {
             var widgets = [
               ListTile(
-                title: Text("no".t()),
-                leading: Radio<bool>(
-                  value: false,
-                  groupValue: selectedValue,
-                  onChanged: (value) {
-                    setState(() {
-                      selectedValue = value ?? false;
-                    });
-                    if (widget.handleAnswer != null) widget.handleAnswer!(false);
-                  },
-                ),
-              ),
-              // Second radio button
-              ListTile(
                 title: Text("yes".t()),
                 leading: Radio<bool>(
                   value: true,
@@ -65,6 +51,20 @@ class _InheritanceYesNoWidgetState extends State<InheritanceYesNoWidget> {
                       selectedValue = value ?? false;
                     });
                     if (widget.handleAnswer != null) widget.handleAnswer!(true);
+                  },
+                ),
+              ),
+
+              ListTile(
+                title: Text("no".t()),
+                leading: Radio<bool>(
+                  value: false,
+                  groupValue: selectedValue,
+                  onChanged: (value) {
+                    setState(() {
+                      selectedValue = value ?? false;
+                    });
+                    if (widget.handleAnswer != null) widget.handleAnswer!(false);
                   },
                 ),
               ),
