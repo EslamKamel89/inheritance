@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:inheritance/core/api_service/api_consumer.dart';
+import 'package:inheritance/core/api_service/end_points.dart';
 import 'package:inheritance/core/enums/response_type.dart';
 import 'package:inheritance/core/heleprs/print_helper.dart';
 import 'package:inheritance/core/heleprs/snackbar.dart';
@@ -18,10 +19,7 @@ class ResultCubit extends Cubit<ApiResponseModel<ResultModel>> {
     final t = prt('fetchResult - ResultCubit');
     try {
       emit(state.copyWith(response: ResponseEnum.loading));
-      final response = await api.post(
-        'http://inherit.safqauae.com/api/inherit',
-        data: inheritanceState.toRequestBody(),
-      );
+      final response = await api.post(EndPoint.inherit, data: inheritanceState.toRequestBody());
       // response['data']['GrandChildren'] = [
       //   {
       //     "gender": "male",
