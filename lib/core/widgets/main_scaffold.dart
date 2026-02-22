@@ -44,10 +44,14 @@ class MainScaffold extends StatelessWidget {
               itemBuilder:
                   (context) => [
                     PopupMenuItem(value: "about", child: Text("about_section_title".t())),
+                    PopupMenuItem(value: "examples", child: Text("examples_title".t())),
                   ],
               onSelected: (value) {
                 if (value == "about") {
                   Navigator.pushNamed(context, AppRoutesNames.aboutScreen);
+                }
+                if (value == "examples") {
+                  Navigator.pushNamed(context, AppRoutesNames.examplesScreen);
                 }
               },
             ),

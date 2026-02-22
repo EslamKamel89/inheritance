@@ -41,7 +41,7 @@ class ResultDataWidget extends StatelessWidget {
                 ...List.generate(entries.length, (i) {
                   final e = entries[i];
                   final valueStr = _valueToDisplayString(e.value);
-                  if (e.key == 'GrandChildren') {
+                  if (e.key == 'grandchildren_number') {
                     return _TableRowItem(
                           label: "grandchildren".t(),
                           value: "details".t(),
@@ -55,7 +55,7 @@ class ResultDataWidget extends StatelessWidget {
                         .slideY(begin: 0.2, end: 0, duration: 400.ms, curve: Curves.easeOut);
                   }
                   return _TableRowItem(
-                        label: e.key,
+                        label: e.key.t(),
                         value: valueStr,
                         palette: palette,
                         showDivider: i != entries.length - 1,

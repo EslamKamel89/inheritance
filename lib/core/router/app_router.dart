@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:inheritance/core/router/app_routes_names.dart';
 import 'package:inheritance/core/router/middleware.dart';
 import 'package:inheritance/features/inheritance/presentation/about_screen.dart';
+import 'package:inheritance/features/inheritance/presentation/examples_screen.dart';
 import 'package:inheritance/features/inheritance/presentation/screens/Inheritance_screen.dart';
 import 'package:inheritance/features/splash_screen/splash_screen.dart';
 
@@ -21,7 +22,11 @@ class AppRouter {
         );
       case AppRoutesNames.aboutScreen:
         return CustomPageRoute(builder: (context) => const AboutScreen(), settings: routeSettings);
-
+      case AppRoutesNames.examplesScreen:
+        return CustomPageRoute(
+          builder: (context) => const ExamplesScreen(),
+          settings: routeSettings,
+        );
       default:
         return null;
     }

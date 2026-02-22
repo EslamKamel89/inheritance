@@ -271,5 +271,75 @@ class LocalizationService {
 
     "about_version_title": {"en": "Version", "ar": "الإصدار"},
     "about_version_body": {"en": "Mirath v1.0", "ar": "ميراث الإصدار 1.0"},
+
+    // ================= EXAMPLES / TUTORIAL SCREEN =================
+    "examples_title": {"en": "How to Use", "ar": "كيفية الاستخدام"},
+    "examples_intro_title": {"en": "Using Mirath is Simple", "ar": "استخدام ميراث سهل"},
+    "examples_intro_body": {
+      "en":
+          "Follow a few guided steps and the app will calculate inheritance shares automatically.",
+      "ar": "اتبع خطوات بسيطة وسيقوم التطبيق بحساب أنصبة الميراث تلقائيًا.",
+    },
+
+    "step1_title": {"en": "Enter Total Estate", "ar": "إدخال إجمالي التركة"},
+    "step1_body": {
+      "en": "Start by entering the total amount of inheritance left by the deceased.",
+      "ar": "ابدأ بإدخال إجمالي قيمة التركة التي تركها المتوفى.",
+    },
+
+    "step2_title": {"en": "Add Debts & Wills", "ar": "إضافة الديون والوصية"},
+    "step2_body": {
+      "en": "Enter any debts or wills that must be deducted before distribution.",
+      "ar": "أدخل الديون أو الوصايا التي يجب خصمها قبل توزيع التركة.",
+    },
+
+    "step3_title": {"en": "Choose Your Relation", "ar": "تحديد علاقتك بالمتوفى"},
+    "step3_body": {
+      "en": "Select your relationship to the deceased so the app understands your role.",
+      "ar": "اختر علاقتك بالمتوفى ليتمكن التطبيق من تحديد دورك.",
+    },
+
+    "step4_title": {"en": "Answer Family Questions", "ar": "الإجابة على أسئلة العائلة"},
+    "step4_body": {
+      "en": "Answer simple questions about parents, children, and other relatives.",
+      "ar": "أجب عن أسئلة بسيطة حول الوالدين والأبناء وبقية الأقارب.",
+    },
+
+    "step5_title": {"en": "Get Automatic Results", "ar": "الحصول على النتائج تلقائيًا"},
+    "step5_body": {
+      "en": "The app calculates inheritance shares instantly based on Islamic rules.",
+      "ar": "يقوم التطبيق بحساب الأنصبة فورًا وفق أحكام الشريعة الإسلامية.",
+    },
+
+    "examples_ready": {"en": "You're ready to start!", "ar": "أنت الآن جاهز للبدء!"},
+
+    // ================= RESULT LABELS =================
+    "wasiayat_value": {"en": "Wasiyat Amount", "ar": "قيمة الوصية"},
+
+    "loan_value": {"en": "Loan Amount", "ar": "قيمة الدين"},
+
+    "brothers_number": {"en": "Brothers Count", "ar": "عدد الإخوة"},
+
+    "sisters_number": {"en": "Sisters Count", "ar": "عدد الأخوات"},
+
+    "grandchildren_number": {"en": "Grandchildren", "ar": "الأحفاد"},
+
+    "total_value": {"en": "Total Amount", "ar": "إجمالي التركة"},
+
+    "husband": {"en": "Husband", "ar": "الزوج"},
+    "wife": {"en": "Wife", "ar": "الزوجة"},
+    "mother": {"en": "Mother", "ar": "الأم"},
+    "father": {"en": "Father", "ar": "الأب"},
+
+    "sons": {"en": "Sons", "ar": "الأبناء الذكور"},
+    "daughters": {"en": "Daughters", "ar": "البنات"},
+
+    "son": {"en": "Son", "ar": "ابن"},
+    "daughter": {"en": "Daughter", "ar": "ابنة"},
+
+    "brother": {"en": "Brother", "ar": "أخ"},
+    "sister": {"en": "Sister", "ar": "أخت"},
+
+    "remaining": {"en": "Remaining Amount", "ar": "المبلغ المتبقي"},
   };
 }
