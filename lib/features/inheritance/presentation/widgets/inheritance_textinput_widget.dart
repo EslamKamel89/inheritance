@@ -18,7 +18,7 @@ class InheritanceTextInputWidget extends StatefulWidget {
     this.nextTitle,
     this.placeholder,
     this.textInputType,
-    this.fitImage = false,
+    this.smallImage = false,
   });
   final String? image;
   final String? label;
@@ -29,7 +29,7 @@ class InheritanceTextInputWidget extends StatefulWidget {
   final String? nextTitle;
   final String? placeholder;
   final TextInputType? textInputType;
-  final bool fitImage;
+  final bool smallImage;
   @override
   State<InheritanceTextInputWidget> createState() => _InheritanceTextInputWidgetState();
 }
@@ -47,7 +47,7 @@ class _InheritanceTextInputWidgetState extends State<InheritanceTextInputWidget>
     return Column(
       children: [
         Sizer(),
-        if (widget.image != null) CustomImage(image: widget.image!, fitImage: widget.fitImage),
+        if (widget.image != null) CustomImage(image: widget.image!, smallImage: widget.smallImage),
         if (widget.label != null) txt(widget.label!, e: St.bold20),
         Sizer(),
         TextFormField(

@@ -36,7 +36,7 @@ class _TotalAmountWidgetState extends State<TotalAmountWidget> {
             ? DefaultAnimation(
               child: InheritanceTextInputWidget(
                 image: AssetsData.logo,
-                fitImage: true,
+                smallImage: true,
                 handleSubmit: (String val) {
                   if (val.isEmpty) {
                     showSnackbar('Error', "enter_total_amount".t(), true);
