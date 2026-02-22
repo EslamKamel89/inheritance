@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:inheritance/core/extensions/context-extensions.dart';
+import 'package:inheritance/core/services/localization/localization_service.dart';
 import 'package:inheritance/core/widgets/main_scaffold.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/appbar_title.dart';
 import 'package:inheritance/features/inheritance/presentation/widgets/brothers_count_widget.dart';
@@ -90,7 +91,7 @@ class InheritanceContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // LocalizationService.instance.loadTranslations();
+    LocalizationService.instance.loadTranslations();
     return Column(
       children: [
         TotalAmountWidget(),

@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:inheritance/core/api_service/api_consumer.dart';
-import 'package:inheritance/core/api_service/end_points.dart';
 import 'package:inheritance/core/heleprs/snackbar.dart';
 import 'package:inheritance/core/service_locator/service_locator.dart';
 
@@ -15,9 +14,9 @@ class LocalizationService {
   Future<void> loadTranslations() async {
     final api = serviceLocator<ApiConsumer>();
     try {
-      final res = await api.get(EndPoint.translates);
-      // _translations = _fakeBackendResponse();
-      _translations = res;
+      // final res = await api.get(EndPoint.translates);
+      _translations = _fakeBackendResponse();
+      // _translations = res;
     } catch (e) {
       String errorMsg = 'Unkwon Error Occured';
       if (e is DioException) {
@@ -232,5 +231,45 @@ class LocalizationService {
     "female": {"en": "Female", "ar": "أنثي"},
     "details": {"en": "Details", "ar": "التفاصيل"},
     "grandchildren": {"en": "Grand Children", "ar": "الأحفاد"},
+
+    // ================= ABOUT SCREEN =================
+    "about_app_name": {"en": "Mirath", "ar": "ميراث"},
+    "about_tagline": {
+      "en": "Guided by Shariah. Built for peace of mind.",
+      "ar": "مستند إلى الشريعة. صُمم لراحة البال.",
+    },
+
+    "about_section_title": {"en": "About the App", "ar": "عن التطبيق"},
+    "about_section_body": {
+      "en":
+          "Mirath helps you calculate inheritance shares according to Islamic law in a simple, guided, and clear way.",
+      "ar": "يساعدك تطبيق ميراث على حساب أنصبة الميراث وفق الشريعة الإسلامية بطريقة سهلة ومبسطة.",
+    },
+
+    "about_how_title": {"en": "How It Works", "ar": "كيف يعمل التطبيق"},
+    "about_how_body": {
+      "en":
+          "You answer step-by-step questions about the deceased and heirs. The app then calculates the correct distribution automatically.",
+      "ar":
+          "تقوم بالإجابة على مجموعة من الأسئلة خطوة بخطوة، ثم يقوم التطبيق بحساب التوزيع الصحيح تلقائيًا.",
+    },
+
+    "about_disclaimer_title": {"en": "Important Disclaimer", "ar": "تنبيه مهم"},
+    "about_disclaimer_body": {
+      "en":
+          "This app is an educational tool only. It does not replace official religious or legal consultation. Always consult qualified scholars for complex cases.",
+      "ar":
+          "هذا التطبيق أداة تعليمية فقط ولا يُغني عن الاستشارة الشرعية أو القانونية. يُنصح بالرجوع إلى أهل العلم في الحالات المعقدة.",
+    },
+
+    "about_limitations_title": {"en": "Limitations", "ar": "القيود"},
+    "about_limitations_body": {
+      "en":
+          "Some special cases may not be supported, such as unborn heirs, disputed ownership, or incomplete information.",
+      "ar": "قد لا يدعم التطبيق بعض الحالات الخاصة مثل وجود جنين أو النزاعات أو نقص المعلومات.",
+    },
+
+    "about_version_title": {"en": "Version", "ar": "الإصدار"},
+    "about_version_body": {"en": "Mirath v1.0", "ar": "ميراث الإصدار 1.0"},
   };
 }
