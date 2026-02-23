@@ -2,11 +2,15 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:inheritance/core/api_service/api_consumer.dart';
-import 'package:inheritance/core/heleprs/snackbar.dart';
+import 'package:inheritance/core/api_service/end_points.dart';
+import 'package:inheritance/core/heleprs/print_helper.dart';
 import 'package:inheritance/core/service_locator/service_locator.dart';
+import 'package:inheritance/core/static_data/shared_prefrences_key.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalizationService {
   LocalizationService._();
+  final SharedPreferences prefs = serviceLocator<SharedPreferences>();
   static final LocalizationService instance = LocalizationService._();
   Map<String, dynamic> _translations = {};
 
@@ -14,15 +18,21 @@ class LocalizationService {
   Future<void> loadTranslations() async {
     final api = serviceLocator<ApiConsumer>();
     try {
-      // final res = await api.get(EndPoint.translates);
-      _translations = _fakeBackendResponse();
-      // _translations = res;
+      final res = await api.get(EndPoint.translates);
+      // _translations = _fakeBackendResponse();
+      _translations = res;
+      prefs.setString(ShPrefKey.translations, jsonEncode(_translations));
     } catch (e) {
       String errorMsg = 'Unkwon Error Occured';
       if (e is DioException) {
         errorMsg = jsonEncode(e.response?.data ?? 'Unkwon Error Occured');
       }
-      showSnackbar('Server Error', errorMsg, true);
+      // showSnackbar('Server Error', errorMsg, true);
+      pr(errorMsg, 'LocalizationService - loadTranslations');
+      final translationsStr = prefs.getString(ShPrefKey.translations);
+      if (translationsStr != null) {
+        _translations = jsonDecode(translationsStr);
+      }
     }
   }
 
