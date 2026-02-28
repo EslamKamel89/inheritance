@@ -25,6 +25,7 @@ class AboutScreen extends StatelessWidget {
             _InfoCard(
               title: "about_section_title".t(),
               body: "about_section_body".t(),
+              html: "about_section_html".t(),
               icon: Icons.info_outline,
               color: Colors.blue,
             ),
@@ -32,6 +33,7 @@ class AboutScreen extends StatelessWidget {
             _InfoCard(
               title: "about_how_title".t(),
               body: "about_how_body".t(),
+              html: "about_how_html".t(),
               icon: Icons.psychology,
               color: Colors.deepPurple,
             ),
@@ -39,6 +41,7 @@ class AboutScreen extends StatelessWidget {
             _InfoCard(
               title: "about_disclaimer_title".t(),
               body: "about_disclaimer_body".t(),
+              html: "about_disclaimer_html".t(),
               icon: Icons.warning_amber,
               color: Colors.redAccent,
             ),
@@ -46,6 +49,7 @@ class AboutScreen extends StatelessWidget {
             _InfoCard(
               title: "about_limitations_title".t(),
               body: "about_limitations_body".t(),
+              html: "about_limitations_html".t(),
               icon: Icons.block,
               color: Colors.orange,
             ),
@@ -121,6 +125,7 @@ class _HeaderSection extends StatelessWidget {
 class _InfoCard extends StatelessWidget {
   final String title;
   final String body;
+  final String html;
   final IconData icon;
   final Color color;
 
@@ -129,6 +134,7 @@ class _InfoCard extends StatelessWidget {
     required this.body,
     required this.icon,
     required this.color,
+    required this.html,
   });
 
   @override
@@ -139,7 +145,7 @@ class _InfoCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (_) => AboutDetailScreen(title: title, body: body, icon: icon, color: color),
+            builder: (_) => AboutDetailScreen(title: title, html: html, icon: icon, color: color),
           ),
         );
       },

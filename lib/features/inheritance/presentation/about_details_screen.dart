@@ -1,18 +1,20 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:inheritance/core/extensions/context-extensions.dart';
 import 'package:inheritance/core/widgets/main_scaffold.dart';
+import 'package:inheritance/core/widgets/styled_html_view.dart';
 
 class AboutDetailScreen extends StatelessWidget {
   final String title;
-  final String body;
+  final String html;
   final IconData icon;
   final Color color;
 
   const AboutDetailScreen({
     super.key,
     required this.title,
-    required this.body,
+    required this.html,
     required this.icon,
     required this.color,
   });
@@ -48,15 +50,19 @@ class AboutDetailScreen extends StatelessWidget {
               textAlign: TextAlign.center,
               style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
             ).animate().fadeIn(delay: 200.ms).slideY(begin: 0.3),
-
             const SizedBox(height: 20),
+            StreamingHtmlView(
+              rawResponseHtml: html,
+              animate: true,
+              accentColor: context.primaryColor,
+            ),
 
             // Full Body (Scrollable)
-            Text(
-              body,
-              textAlign: TextAlign.justify,
-              style: const TextStyle(fontSize: 17, height: 1.6),
-            ).animate().fadeIn(delay: 400.ms),
+            // Text(
+            //   html,
+            //   textAlign: TextAlign.justify,
+            //   style: const TextStyle(fontSize: 17, height: 1.6),
+            // ).animate().fadeIn(delay: 400.ms),
           ],
         ),
       ),

@@ -19,8 +19,8 @@ class LocalizationService {
     final api = serviceLocator<ApiConsumer>();
     try {
       final res = await api.get(EndPoint.translates);
-      // _translations = _fakeBackendResponse();
       _translations = res;
+      // _translations = _fakeBackendResponse();
       prefs.setString(ShPrefKey.translations, jsonEncode(_translations));
     } catch (e) {
       String errorMsg = 'Unkwon Error Occured';
@@ -351,5 +351,49 @@ class LocalizationService {
     "sister": {"en": "Sister", "ar": "أخت"},
 
     "remaining": {"en": "Remaining Amount", "ar": "المبلغ المتبقي"},
+
+    // ----------------- new ----------------------------
+    "about_section_html": {
+      "en":
+          "<h1>About Mirath</h1><p><strong>Mirath</strong> is a guided inheritance calculation tool designed to simplify the complex rules of Islamic inheritance (Faraid).</p><p>The application helps families understand how wealth should be distributed after settling debts and wills, following authentic Shariah principles.</p><h2>Our Mission</h2><p>We aim to make inheritance calculations:</p><ul><li>Clear and understandable</li><li>Accurate according to Islamic jurisprudence</li><li>Accessible to everyone</li></ul><blockquote data-type=\"definition\">Mirath is not just a calculator — it is an educational companion that guides users step by step.</blockquote>",
+      "ar":
+          "<h1>عن تطبيق ميراث</h1><p><strong>ميراث</strong> هو أداة موجهة لحساب الميراث تهدف إلى تبسيط أحكام المواريث في الشريعة الإسلامية.</p><p>يساعد التطبيق العائلات على فهم كيفية توزيع التركة بعد سداد الديون وتنفيذ الوصايا، وفقًا لأحكام الشريعة المعتمدة.</p><h2>رسالتنا</h2><p>نسعى إلى جعل حساب الميراث:</p><ul><li>واضحًا وسهل الفهم</li><li>دقيقًا وفق الفقه الإسلامي</li><li>متاحًا للجميع</li></ul><blockquote data-type=\"definition\">ميراث ليس مجرد حاسبة، بل دليل تعليمي يرافق المستخدم خطوة بخطوة.</blockquote>",
+    },
+
+    "about_how_html": {
+      "en":
+          "<h1>How Mirath Works</h1><h2>Step 1: Enter the Estate</h2><p>You begin by entering the total estate value.</p><h2>Step 2: Deduct Obligations</h2><p>Debts and valid wills are deducted before distribution.</p><h2>Step 3: Identify Heirs</h2><p>The app asks structured questions about:</p><ul><li>Parents</li><li>Spouse</li><li>Children</li><li>Siblings</li></ul><h2>Step 4: Automatic Calculation</h2><p>Based on your answers, Mirath applies Islamic inheritance rules and generates the correct shares instantly.</p><span data-type=\"quran\">“For men is a share of what the parents and close relatives leave, and for women is a share...” (Qur’an 4:7)</span>",
+      "ar":
+          "<h1>كيف يعمل تطبيق ميراث</h1><h2>الخطوة الأولى: إدخال التركة</h2><p>تبدأ بإدخال إجمالي قيمة التركة.</p><h2>الخطوة الثانية: خصم الالتزامات</h2><p>يتم خصم الديون والوصايا الصحيحة قبل توزيع الميراث.</p><h2>الخطوة الثالثة: تحديد الورثة</h2><p>يطرح التطبيق أسئلة منظمة حول:</p><ul><li>الوالدين</li><li>الزوج أو الزوجة</li><li>الأبناء</li><li>الإخوة والأخوات</li></ul><h2>الخطوة الرابعة: الحساب التلقائي</h2><p>بناءً على إجاباتك، يطبق ميراث أحكام الشريعة ويحسب الأنصبة بدقة وفورًا.</p><span data-type=\"quran\">﴿لِلرِّجَالِ نَصِيبٌ مِّمَّا تَرَكَ الْوَالِدَانِ وَالْأَقْرَبُونَ وَلِلنِّسَاءِ نَصِيبٌ﴾ (النساء: 7)</span>",
+    },
+
+    "about_disclaimer_html": {
+      "en":
+          "<h1>Important Disclaimer</h1><p>This application is provided for <strong>educational and informational purposes</strong> only.</p><ul><li>It does not replace official legal consultation.</li><li>It does not replace certified religious scholarship.</li></ul><p>Inheritance cases may vary depending on specific circumstances, local laws, or juristic differences.</p><blockquote data-type=\"definition\">For complex or disputed cases, always consult a qualified Islamic scholar or legal authority.</blockquote><p><strong data-type=\"contrast\">Do not rely solely on automated tools for critical legal decisions.</strong></p>",
+      "ar":
+          "<h1>تنبيه مهم</h1><p>هذا التطبيق مخصص لأغراض <strong>تعليمية وتثقيفية</strong> فقط.</p><ul><li>لا يُغني عن الاستشارة القانونية الرسمية.</li><li>ولا يُغني عن الرجوع إلى أهل العلم المختصين.</li></ul><p>قد تختلف بعض حالات الميراث بحسب الظروف الخاصة أو القوانين المحلية أو اختلاف الاجتهادات الفقهية.</p><blockquote data-type=\"definition\">في الحالات المعقدة أو محل النزاع، يُنصح بالرجوع إلى عالم شرعي مؤهل أو جهة قانونية مختصة.</blockquote><p><strong data-type=\"contrast\">لا تعتمد على الأدوات الآلية وحدها في القرارات القانونية الحساسة.</strong></p>",
+    },
+
+    "about_limitations_html": {
+      "en":
+          "<h1>Current Limitations</h1><p>While Mirath covers common inheritance scenarios, some special cases may not yet be supported:</p><ul><li>Unborn heirs</li><li>Missing persons</li><li>Disputed ownership</li><li>Complex multi-generational cases</li></ul><p>We continuously improve the system to handle more advanced jurisprudential scenarios.</p><blockquote data-type=\"definition\">Your feedback helps us expand coverage and accuracy.</blockquote>",
+      "ar":
+          "<h1>القيود الحالية</h1><p>رغم أن ميراث يغطي أغلب الحالات الشائعة، إلا أن بعض الحالات الخاصة قد لا تكون مدعومة حاليًا مثل:</p><ul><li>وجود جنين</li><li>المفقودين</li><li>النزاعات على الملكية</li><li>الحالات متعددة الأجيال المعقدة</li></ul><p>نعمل باستمرار على تطوير النظام ليشمل حالات فقهية أكثر تعقيدًا.</p><blockquote data-type=\"definition\">ملاحظاتكم تساهم في تحسين التغطية والدقة.</blockquote>",
+    },
+
+    "share_app": {"en": "Share App", "ar": "مشاركة التطبيق"},
+
+    "share_app_title": {"en": "Share Mirath", "ar": "مشاركة تطبيق ميراث"},
+
+    "share_app_body": {
+      "en": "Help others benefit from inheritance calculation by sharing the app.",
+      "ar": "ساعد الآخرين في الاستفادة من حساب الميراث عبر مشاركة التطبيق.",
+    },
+
+    "share_android": {"en": "Share Android Version", "ar": "مشاركة نسخة أندرويد"},
+
+    "share_ios": {"en": "Share iOS Version", "ar": "مشاركة نسخة iOS"},
+
+    "cancel": {"en": "Cancel", "ar": "إلغاء"},
   };
 }
