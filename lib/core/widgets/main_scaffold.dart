@@ -47,7 +47,7 @@ class MainScaffold extends StatelessWidget {
                   (context) => [
                     PopupMenuItem(value: "about", child: Text("about_section_title".t())),
                     PopupMenuItem(value: "examples", child: Text("examples_title".t())),
-                    PopupMenuItem(value: "share", child: Text("share_app".t())),
+                    // PopupMenuItem(value: "share", child: Text("share_app".t())),
                   ],
               onSelected: (value) {
                 if (value == "about") {
