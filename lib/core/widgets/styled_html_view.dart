@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_html/flutter_html.dart';
@@ -41,18 +42,19 @@ class StyledHtmlView extends StatelessWidget {
     final Color mutedText = Theme.of(context).textTheme.bodyLarge!.color!.withOpacity(0.9);
 
     return SingleChildScrollView(
-      child: Container(
+      child: SizedBox(
         width: double.infinity,
-        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
-        decoration: BoxDecoration(
-          color: surface,
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: Colors.black12),
-          boxShadow: const [
-            BoxShadow(blurRadius: 8, offset: Offset(0, 3), color: Color.fromRGBO(0, 0, 0, 0.04)),
-          ],
-        ),
+        // padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+        // decoration: BoxDecoration(
+        //   color: surface,
+        //   borderRadius: BorderRadius.circular(12),
+        //   border: Border.all(color: Colors.black12),
+        //   boxShadow: const [
+        //     BoxShadow(blurRadius: 8, offset: Offset(0, 3), color: Color.fromRGBO(0, 0, 0, 0.04)),
+        //   ],
+        // ),
         child: Html(
+          key: Key(context.locale.languageCode),
           data: html,
           shrinkWrap: true,
           style:
@@ -215,11 +217,12 @@ class _StreamingHtmlViewState extends State<StreamingHtmlView> {
         timer.cancel();
         return;
       }
-
-      setState(() {
-        _index++;
-        visibleHtml = widget.rawResponseHtml.substring(0, _index);
-      });
+      if (mounted) {
+        setState(() {
+          _index++;
+          visibleHtml = widget.rawResponseHtml.substring(0, _index);
+        });
+      }
     });
   }
 

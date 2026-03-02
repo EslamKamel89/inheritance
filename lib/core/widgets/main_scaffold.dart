@@ -19,6 +19,7 @@ class MainScaffold extends StatelessWidget {
     this.floatingActionButton,
     this.titleWidget,
     this.backgroundColor,
+    this.onLocaleChange,
   });
   final String? appBarTitle;
   final Widget child;
@@ -29,6 +30,7 @@ class MainScaffold extends StatelessWidget {
   final bool hideAppBar;
   final Widget? titleWidget;
   final Color? backgroundColor;
+  final Function? onLocaleChange;
   @override
   Widget build(BuildContext context) {
     // final bool isDark = context.watch<ThemeCubit>().isDarkMode();
@@ -40,7 +42,7 @@ class MainScaffold extends StatelessWidget {
           title: titleWidget ?? Text(appBarTitle ?? ''),
           foregroundColor: hideAppBar ? context.secondaryHeaderColor : null,
           actions: [
-            LanguageSelector(),
+            LanguageSelector(onLocaleChange: onLocaleChange),
             PopupMenuButton(
               icon: const Icon(Icons.more_vert),
               itemBuilder:

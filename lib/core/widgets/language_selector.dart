@@ -2,19 +2,22 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class LanguageSelector extends StatelessWidget {
-  const LanguageSelector({super.key});
+  const LanguageSelector({super.key, this.onLocaleChange});
+  final Function? onLocaleChange;
 
   @override
   Widget build(BuildContext context) {
     final isEnglish = context.locale.languageCode == 'en';
-
     return PopupMenuButton<Locale>(
       tooltip: '',
       padding: EdgeInsets.zero,
       offset: const Offset(0, 40),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-      onSelected: (locale) {
-        context.setLocale(locale);
+      onSelected: (locale) async {
+        await context.setLocale(locale);
+        if (onLocaleChange != null) {
+          onLocaleChange!();
+        }
       },
       itemBuilder:
           (context) => [

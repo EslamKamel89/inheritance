@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:inheritance/core/extensions/context-extensions.dart';
+import 'package:inheritance/core/services/localization/localization_extension.dart';
 import 'package:inheritance/core/widgets/main_scaffold.dart';
 import 'package:inheritance/core/widgets/styled_html_view.dart';
 
@@ -24,9 +25,16 @@ class AboutDetailScreen extends StatelessWidget {
     context.locale;
 
     return MainScaffold(
-      appBarTitle: title,
+      appBarTitle: title.t(),
+      onLocaleChange: () {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (_) => AboutDetailScreen(title: title, html: html, icon: icon, color: color),
+          ),
+        );
+      },
       child: SingleChildScrollView(
-        padding: const EdgeInsets.all(20),
+        // padding: const EdgeInsets.all(20),
         child: Column(
           children: [
             const SizedBox(height: 20),
@@ -46,13 +54,13 @@ class AboutDetailScreen extends StatelessWidget {
 
             // Title
             Text(
-              title,
+              title.t(),
               textAlign: TextAlign.center,
               style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
             ).animate().fadeIn(delay: 200.ms).slideY(begin: 0.3),
             const SizedBox(height: 20),
             StreamingHtmlView(
-              rawResponseHtml: html,
+              rawResponseHtml: html.t(),
               animate: true,
               accentColor: context.primaryColor,
             ),

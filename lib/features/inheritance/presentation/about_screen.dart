@@ -23,33 +23,33 @@ class AboutScreen extends StatelessWidget {
             const SizedBox(height: 25),
 
             _InfoCard(
-              title: "about_section_title".t(),
-              body: "about_section_body".t(),
-              html: "about_section_html".t(),
+              title: "about_section_title",
+              body: "about_section_body",
+              html: "about_section_html",
               icon: Icons.info_outline,
               color: Colors.blue,
             ),
 
             _InfoCard(
-              title: "about_how_title".t(),
-              body: "about_how_body".t(),
-              html: "about_how_html".t(),
+              title: "about_how_title",
+              body: "about_how_body",
+              html: "about_how_html",
               icon: Icons.psychology,
               color: Colors.deepPurple,
             ),
 
             _InfoCard(
-              title: "about_disclaimer_title".t(),
-              body: "about_disclaimer_body".t(),
-              html: "about_disclaimer_html".t(),
+              title: "about_disclaimer_title",
+              body: "about_disclaimer_body",
+              html: "about_disclaimer_html",
               icon: Icons.warning_amber,
               color: Colors.redAccent,
             ),
 
             _InfoCard(
-              title: "about_limitations_title".t(),
-              body: "about_limitations_body".t(),
-              html: "about_limitations_html".t(),
+              title: "about_limitations_title",
+              body: "about_limitations_body",
+              html: "about_limitations_html",
               icon: Icons.block,
               color: Colors.orange,
             ),
@@ -177,10 +177,13 @@ class _InfoCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(title, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+                  Text(
+                    title.t(),
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                  ),
                   const SizedBox(height: 6),
                   Text(
-                    body,
+                    body.t(),
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(height: 1.5, fontSize: 15),
