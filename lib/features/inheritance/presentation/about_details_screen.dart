@@ -6,11 +6,12 @@ import 'package:inheritance/core/services/localization/localization_extension.da
 import 'package:inheritance/core/widgets/main_scaffold.dart';
 import 'package:inheritance/core/widgets/styled_html_view.dart';
 
-class AboutDetailScreen extends StatelessWidget {
+class AboutDetailScreen extends StatefulWidget {
   final String title;
   final String html;
   final IconData icon;
   final Color color;
+  final List<String>? images;
 
   const AboutDetailScreen({
     super.key,
@@ -18,18 +19,32 @@ class AboutDetailScreen extends StatelessWidget {
     required this.html,
     required this.icon,
     required this.color,
+    this.images,
   });
 
+  @override
+  State<AboutDetailScreen> createState() => _AboutDetailScreenState();
+}
+
+class _AboutDetailScreenState extends State<AboutDetailScreen> {
+  bool showImages = false;
   @override
   Widget build(BuildContext context) {
     context.locale;
 
     return MainScaffold(
-      appBarTitle: title.t(),
+      appBarTitle: widget.title.t(),
       onLocaleChange: () {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (_) => AboutDetailScreen(title: title, html: html, icon: icon, color: color),
+            builder:
+                (_) => AboutDetailScreen(
+                  title: widget.title,
+                  html: widget.html,
+                  icon: widget.icon,
+                  color: widget.color,
+                  images: widget.images,
+                ),
           ),
         );
       },
@@ -43,8 +58,11 @@ class AboutDetailScreen extends StatelessWidget {
             Container(
                   width: 120,
                   height: 120,
-                  decoration: BoxDecoration(shape: BoxShape.circle, color: color.withOpacity(0.15)),
-                  child: Icon(icon, size: 60, color: color),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: widget.color.withOpacity(0.15),
+                  ),
+                  child: Icon(widget.icon, size: 60, color: widget.color),
                 )
                 .animate()
                 .fadeIn(duration: 400.ms)
@@ -54,17 +72,31 @@ class AboutDetailScreen extends StatelessWidget {
 
             // Title
             Text(
-              title.t(),
+              widget.title.t(),
               textAlign: TextAlign.center,
               style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
             ).animate().fadeIn(delay: 200.ms).slideY(begin: 0.3),
             const SizedBox(height: 20),
             StreamingHtmlView(
-              rawResponseHtml: html.t(),
+              rawResponseHtml: widget.html.t(),
               animate: true,
               accentColor: context.primaryColor,
+              onAnimateFinish: () {
+                setState(() {
+                  showImages = true;
+                });
+              },
             ),
-
+            if (widget.images?.isNotEmpty == true && showImages)
+              Column(
+                children: [
+                  ...List.generate(widget.images!.length, (index) {
+                    return Image.asset(
+                      widget.images![index].replaceFirst('locale', context.locale.languageCode),
+                    );
+                  }),
+                ],
+              ),
             // Full Body (Scrollable)
             // Text(
             //   html,

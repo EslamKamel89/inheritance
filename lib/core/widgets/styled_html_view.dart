@@ -181,12 +181,14 @@ class StreamingHtmlView extends StatefulWidget {
   final Color? accentColor;
   final Color? surfaceColor;
   final bool animate;
+  final Function? onAnimateFinish;
   const StreamingHtmlView({
     super.key,
     required this.rawResponseHtml,
     this.accentColor,
     this.surfaceColor,
     this.animate = false,
+    this.onAnimateFinish,
   });
 
   @override
@@ -199,7 +201,7 @@ class _StreamingHtmlViewState extends State<StreamingHtmlView> {
   int _index = 0;
 
   // Speed control (lower = faster typing)
-  final int typingSpeedMs = 6;
+  final int typingSpeedMs = 3;
 
   @override
   void initState() {
@@ -208,6 +210,9 @@ class _StreamingHtmlViewState extends State<StreamingHtmlView> {
       _startStreaming();
     } else {
       visibleHtml = widget.rawResponseHtml;
+      if (widget.onAnimateFinish != null) {
+        widget.onAnimateFinish!();
+      }
     }
   }
 
@@ -215,6 +220,9 @@ class _StreamingHtmlViewState extends State<StreamingHtmlView> {
     _timer = Timer.periodic(Duration(milliseconds: typingSpeedMs), (timer) {
       if (_index >= widget.rawResponseHtml.length) {
         timer.cancel();
+        if (widget.onAnimateFinish != null) {
+          widget.onAnimateFinish!();
+        }
         return;
       }
       if (mounted) {

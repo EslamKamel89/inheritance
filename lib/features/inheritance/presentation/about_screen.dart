@@ -42,16 +42,25 @@ class AboutScreen extends StatelessWidget {
               title: "about_disclaimer_title",
               body: "about_disclaimer_body",
               html: "about_disclaimer_html",
-              icon: Icons.warning_amber,
-              color: Colors.redAccent,
+              icon: Icons.info_outline_rounded,
+              color: Colors.greenAccent,
             ),
 
             _InfoCard(
               title: "about_limitations_title",
               body: "about_limitations_body",
               html: "about_limitations_html",
+              icon: Icons.equalizer,
+              color: Colors.orange,
+              images: [AssetsData.equ],
+            ),
+            _InfoCard(
+              title: "about_kalala_title",
+              body: "about_kalala_body",
+              html: "about_kalala_html",
               icon: Icons.block,
               color: Colors.orange,
+              // images: [AssetsData.equ],
             ),
 
             // _InfoCard(
@@ -128,6 +137,7 @@ class _InfoCard extends StatelessWidget {
   final String html;
   final IconData icon;
   final Color color;
+  final List<String>? images;
 
   const _InfoCard({
     required this.title,
@@ -135,6 +145,7 @@ class _InfoCard extends StatelessWidget {
     required this.icon,
     required this.color,
     required this.html,
+    this.images,
   });
 
   @override
@@ -145,7 +156,14 @@ class _InfoCard extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (_) => AboutDetailScreen(title: title, html: html, icon: icon, color: color),
+            builder:
+                (_) => AboutDetailScreen(
+                  title: title,
+                  html: html,
+                  icon: icon,
+                  color: color,
+                  images: images,
+                ),
           ),
         );
       },
