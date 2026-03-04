@@ -331,9 +331,12 @@ class LocalizationService {
     "share_android": {"en": "Share Android Version", "ar": "مشاركة نسخة أندرويد"},
     "share_ios": {"en": "Share iOS Version", "ar": "مشاركة نسخة iOS"},
     "cancel": {"en": "Cancel", "ar": "إلغاء"},
-    // new keys
     "about_kalala_title": {'en': '', "ar": ""},
     "about_kalala_body": {'en': '', "ar": ""},
     "about_kalala_html": {'en': '', "ar": ""},
+    // new keys
+    "about_onsyen_title": {'en': '', "ar": ""},
+    "about_onsyen_body": {'en': '', "ar": ""},
+    "about_onsyen_html": {'en': '', "ar": ""},
   };
 }

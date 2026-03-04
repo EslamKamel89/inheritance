@@ -6,6 +6,7 @@ import 'package:inheritance/core/services/localization/localization_extension.da
 import 'package:inheritance/core/widgets/main_scaffold.dart';
 import 'package:inheritance/features/inheritance/presentation/about_details_screen.dart';
 import 'package:inheritance/utils/assets/assets.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
@@ -58,11 +59,16 @@ class AboutScreen extends StatelessWidget {
               title: "about_kalala_title",
               body: "about_kalala_body",
               html: "about_kalala_html",
-              icon: Icons.block,
-              color: Colors.orange,
-              // images: [AssetsData.equ],
+              icon: Icons.bookmark,
+              color: Colors.redAccent,
             ),
-
+            _InfoCard(
+              title: "about_onsyen_title",
+              body: "about_onsyen_body",
+              html: "about_onsyen_html",
+              icon: MdiIcons.lightbulb,
+              color: Colors.blue,
+            ),
             // _InfoCard(
             //   title: "about_version_title".t(),
             //   body: "about_version_body".t(),

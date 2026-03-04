@@ -5,8 +5,8 @@ import 'package:inheritance/core/router/app_routes_names.dart';
 import 'package:inheritance/core/services/localization/localization_extension.dart';
 import 'package:inheritance/core/widgets/default_screen_padding.dart';
 import 'package:inheritance/core/widgets/language_selector.dart';
+import 'package:share_plus/share_plus.dart';
 
-// import 'package:share_plus/share_plus.dart';
 class MainScaffold extends StatelessWidget {
   const MainScaffold({
     super.key,
@@ -49,7 +49,7 @@ class MainScaffold extends StatelessWidget {
                   (context) => [
                     PopupMenuItem(value: "about", child: Text("about_section_title".t())),
                     PopupMenuItem(value: "examples", child: Text("examples_title".t())),
-                    // PopupMenuItem(value: "share", child: Text("share_app".t())),
+                    PopupMenuItem(value: "share", child: Text("share_app".t())),
                   ],
               onSelected: (value) {
                 if (value == "about") {
@@ -108,7 +108,7 @@ class MainScaffold extends StatelessWidget {
                 icon: Icons.android,
                 color: Colors.green,
                 label: "share_android".t(),
-                link: "https://play.google.com/store/apps/details?id=com.example.mirath",
+                link: "https://play.google.com/store/apps/details?id=com.gaztec.inheritance",
               ),
 
               const SizedBox(height: 15),
@@ -118,7 +118,7 @@ class MainScaffold extends StatelessWidget {
                 icon: Icons.apple,
                 color: Colors.black,
                 label: "share_ios".t(),
-                link: "https://apps.apple.com/app/id0000000000",
+                link: "https://apps.apple.com/us/app/mirath/id6745787906",
               ),
 
               const SizedBox(height: 15),
@@ -141,7 +141,7 @@ class MainScaffold extends StatelessWidget {
     return InkWell(
       borderRadius: BorderRadius.circular(15),
       onTap: () async {
-        // await Share.share(link);
+        await SharePlus.instance.share(ShareParams(text: link));
       },
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 20),
