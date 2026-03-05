@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future init() async {
     await LocalizationService.instance.loadTranslations();
-    await Future.delayed(1000.ms);
+    // await Future.delayed(1000.ms);
     Navigator.of(context).pushNamedAndRemoveUntil(AppRoutesNames.inheritanceScreen, (_) => false);
   }
 

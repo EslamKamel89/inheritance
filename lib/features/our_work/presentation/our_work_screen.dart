@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:inheritance/core/services/localization/localization_extension.dart';
@@ -10,6 +11,7 @@ class OurWorkScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.locale;
     return MainScaffold(
       appBarTitle: "our_work_title".t(),
       child: ListView(
