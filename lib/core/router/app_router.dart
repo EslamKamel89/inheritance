@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:inheritance/core/router/app_routes_names.dart';
 import 'package:inheritance/core/router/middleware.dart';
+import 'package:inheritance/features/ask_us/presentation/ask_us_screen.dart';
 import 'package:inheritance/features/inheritance/presentation/about_screen.dart';
 import 'package:inheritance/features/inheritance/presentation/examples_screen.dart';
 import 'package:inheritance/features/inheritance/presentation/screens/Inheritance_screen.dart';
@@ -33,6 +34,8 @@ class AppRouter {
           builder: (context) => const OurWorkScreen(),
           settings: routeSettings,
         );
+      case AppRoutesNames.askUsScreen:
+        return CustomPageRoute(builder: (context) => const AskUsScreen(), settings: routeSettings);
       default:
         return null;
     }

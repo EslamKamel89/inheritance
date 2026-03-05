@@ -5,4 +5,5 @@ class AppRoutesNames {
   static const String aboutScreen = '/about';
   static const String examplesScreen = '/examples';
   static const String ourWorkScreen = '/ourWork';
+  static const String askUsScreen = '/askUs';
 }
