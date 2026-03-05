@@ -50,6 +50,7 @@ class MainScaffold extends StatelessWidget {
                     PopupMenuItem(value: "about", child: Text("about_section_title".t())),
                     PopupMenuItem(value: "examples", child: Text("examples_title".t())),
                     PopupMenuItem(value: "share", child: Text("share_app".t())),
+                    PopupMenuItem(value: "our_work", child: Text("our_work_title".t())),
                   ],
               onSelected: (value) {
                 if (value == "about") {
@@ -60,6 +61,9 @@ class MainScaffold extends StatelessWidget {
                 }
                 if (value == "share") {
                   _showShareModal(context);
+                }
+                if (value == "our_work") {
+                  Navigator.pushNamed(context, AppRoutesNames.ourWorkScreen);
                 }
               },
             ),
