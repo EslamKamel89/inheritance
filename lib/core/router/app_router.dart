@@ -4,6 +4,7 @@ import 'package:inheritance/core/router/middleware.dart';
 import 'package:inheritance/features/inheritance/presentation/about_screen.dart';
 import 'package:inheritance/features/inheritance/presentation/examples_screen.dart';
 import 'package:inheritance/features/inheritance/presentation/screens/Inheritance_screen.dart';
+import 'package:inheritance/features/our_work/presentation/our_work_screen.dart';
 import 'package:inheritance/features/splash_screen/splash_screen.dart';
 
 class AppRouter {
@@ -25,6 +26,11 @@ class AppRouter {
       case AppRoutesNames.examplesScreen:
         return CustomPageRoute(
           builder: (context) => const ExamplesScreen(),
+          settings: routeSettings,
+        );
+      case AppRoutesNames.ourWorkScreen:
+        return CustomPageRoute(
+          builder: (context) => const OurWorkScreen(),
           settings: routeSettings,
         );
       default:

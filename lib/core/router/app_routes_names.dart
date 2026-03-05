@@ -4,4 +4,5 @@ class AppRoutesNames {
   static const String inheritanceScreen = '/inheritanceScreen';
   static const String aboutScreen = '/about';
   static const String examplesScreen = '/examples';
+  static const String ourWorkScreen = '/ourWork';
 }

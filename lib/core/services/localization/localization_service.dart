@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:inheritance/core/api_service/api_consumer.dart';
-import 'package:inheritance/core/api_service/end_points.dart';
 import 'package:inheritance/core/heleprs/print_helper.dart';
 import 'package:inheritance/core/service_locator/service_locator.dart';
 import 'package:inheritance/core/static_data/shared_prefrences_key.dart';
@@ -18,9 +17,9 @@ class LocalizationService {
   Future<void> loadTranslations() async {
     final api = serviceLocator<ApiConsumer>();
     try {
-      final res = await api.get(EndPoint.translates);
-      _translations = res;
-      // _translations = _fakeBackendResponse();
+      // final res = await api.get(EndPoint.translates);
+      // _translations = res;
+      _translations = _fakeBackendResponse();
       prefs.setString(ShPrefKey.translations, jsonEncode(_translations));
     } catch (e) {
       String errorMsg = 'Unkwon Error Occured';
@@ -334,9 +333,36 @@ class LocalizationService {
     "about_kalala_title": {'en': '', "ar": ""},
     "about_kalala_body": {'en': '', "ar": ""},
     "about_kalala_html": {'en': '', "ar": ""},
-    // new keys
+
     "about_onsyen_title": {'en': '', "ar": ""},
     "about_onsyen_body": {'en': '', "ar": ""},
     "about_onsyen_html": {'en': '', "ar": ""},
+
+    // ================= OUR WORK =================
+    "our_work_title": {"en": "Our Work", "ar": "من أعمالنا"},
+
+    "our_work_app_store": {"en": "App Store", "ar": "متجر أبل"},
+
+    "our_work_google_play": {"en": "Google Play", "ar": "متجر جوجل"},
+
+    "our_work_islamic_calendar_title": {
+      "en": "Eternal Islamic Calendar",
+      "ar": "التقويم الإسلامي الأبدي",
+    },
+
+    "our_work_islamic_calendar_description": {
+      "en":
+          "A scientific reconstruction of the Hijri calendar based on the real lunar cycle, introducing synchronous and lunar calendar systems.",
+      "ar": "إعادة هيكلة التقويم الهجري إلى نوعين: متزامن وقمري، بالاعتماد على دورة القمر الفعلية.",
+    },
+
+    "our_work_quran_title": {"en": "Dalalat Al-quran", "ar": "دلالات القرآن"},
+
+    "our_work_quran_description": {
+      "en":
+          "Here you will find reflections from those who engaged their minds to understand this great Qur'an. The door of contemplation will remain open until the Day of Judgment, therefore this application is continuously updated automatically.",
+      "ar":
+          "بين أيديكم تأملات كل من أعمل عقله لفهم هذا القرأن\nالعظيم و سيبقي باب التدبر مفتوحا حتي قيام الساعة لذلك\nيتم تحديث هذا التطبيق تلقائيا و بأستمرار",
+    },
   };
 }
