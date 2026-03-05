@@ -25,4 +25,13 @@ class AssetsData {
   static const String brothers = "$_relativePath/brothers.png";
   static const String grandchildren = "$_relativePath/grandchildren.png";
   static const String equ = "$_relativePath/equ_locale.png";
+  static const String islamicCalender1 = "$_relativePath/islamic_calender_1.png";
+  static const String islamicCalender2 = "$_relativePath/islamic_calender_2.png";
+  static const String islamicCalender3 = "$_relativePath/islamic_calender_3.png";
+  static const String islamicCalender4 = "$_relativePath/islamic_calender_4.png";
+  static const String quran1 = "$_relativePath/quran_1.png";
+  static const String quran2 = "$_relativePath/quran_2.png";
+  static const String quran3 = "$_relativePath/quran_3.png";
+  static const String quran4 = "$_relativePath/quran_4.png";
+  static const String quran5 = "$_relativePath/quran_5.png";
 }
