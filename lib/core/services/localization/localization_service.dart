@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:inheritance/core/api_service/api_consumer.dart';
+import 'package:inheritance/core/api_service/end_points.dart';
 import 'package:inheritance/core/heleprs/print_helper.dart';
 import 'package:inheritance/core/service_locator/service_locator.dart';
 import 'package:inheritance/core/static_data/shared_prefrences_key.dart';
@@ -17,9 +18,9 @@ class LocalizationService {
   Future<void> loadTranslations() async {
     final api = serviceLocator<ApiConsumer>();
     try {
-      // final res = await api.get(EndPoint.translates);
-      // _translations = res;
-      _translations = _fakeBackendResponse();
+      final res = await api.get(EndPoint.translates);
+      _translations = res;
+      // _translations = _fakeBackendResponse();
       prefs.setString(ShPrefKey.translations, jsonEncode(_translations));
     } catch (e) {
       String errorMsg = 'Unkwon Error Occured';
@@ -338,7 +339,6 @@ class LocalizationService {
     "about_onsyen_body": {'en': '', "ar": ""},
     "about_onsyen_html": {'en': '', "ar": ""},
 
-    // ================= OUR WORK =================
     "our_work_title": {"en": "Our Work", "ar": "من أعمالنا"},
 
     "our_work_app_store": {"en": "App Store", "ar": "متجر أبل"},
@@ -365,7 +365,6 @@ class LocalizationService {
           "بين أيديكم تأملات كل من أعمل عقله لفهم هذا القرأن\nالعظيم و سيبقي باب التدبر مفتوحا حتي قيام الساعة لذلك\nيتم تحديث هذا التطبيق تلقائيا و بأستمرار",
     },
 
-    // ================= ASK US =================
     "ask_us_title": {"en": "Ask Us", "ar": "اسألنا"},
 
     "ask_us_name": {"en": "Name", "ar": "الاسم"},
