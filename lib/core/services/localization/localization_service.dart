@@ -364,5 +364,32 @@ class LocalizationService {
       "ar":
           "بين أيديكم تأملات كل من أعمل عقله لفهم هذا القرأن\nالعظيم و سيبقي باب التدبر مفتوحا حتي قيام الساعة لذلك\nيتم تحديث هذا التطبيق تلقائيا و بأستمرار",
     },
+
+    // ================= ASK US =================
+    "ask_us_title": {"en": "Ask Us", "ar": "اسألنا"},
+
+    "ask_us_name": {"en": "Name", "ar": "الاسم"},
+
+    "ask_us_mobile": {"en": "Mobile Number", "ar": "رقم الهاتف"},
+
+    "ask_us_mobile_placeholder": {
+      "en": "Include your country code (example: +966...)",
+      "ar": "يرجى إدخال رمز الدولة (مثال: +966...)",
+    },
+
+    "ask_us_email": {"en": "Email", "ar": "البريد الإلكتروني"},
+
+    "ask_us_question": {"en": "Your Question", "ar": "سؤالك"},
+
+    "ask_us_submit": {"en": "Send Question", "ar": "إرسال السؤال"},
+
+    "ask_us_validation_required": {"en": "All fields are required", "ar": "جميع الحقول مطلوبة"},
+
+    "ask_us_success_title": {"en": "Thank You", "ar": "شكراً لك"},
+
+    "ask_us_success_message": {
+      "en": "We will reply soon on your email or by sending you a message on your phone.",
+      "ar": "سنقوم بالرد قريباً عبر بريدك الإلكتروني أو بإرسال رسالة إلى هاتفك.",
+    },
   };
 }

@@ -51,6 +51,7 @@ class MainScaffold extends StatelessWidget {
                     PopupMenuItem(value: "examples", child: Text("examples_title".t())),
                     PopupMenuItem(value: "share", child: Text("share_app".t())),
                     PopupMenuItem(value: "our_work", child: Text("our_work_title".t())),
+                    PopupMenuItem(value: "ask_us", child: Text("ask_us_title".t())),
                   ],
               onSelected: (value) {
                 if (value == "about") {
@@ -64,6 +65,9 @@ class MainScaffold extends StatelessWidget {
                 }
                 if (value == "our_work") {
                   Navigator.pushNamed(context, AppRoutesNames.ourWorkScreen);
+                }
+                if (value == "ask_us") {
+                  Navigator.pushNamed(context, AppRoutesNames.askUsScreen);
                 }
               },
             ),
