@@ -20,6 +20,7 @@ class LocalizationService {
     try {
       final res = await api.get(EndPoint.translates);
       _translations = res;
+      _translations.addAll(_staticLocalizations);
       // _translations = _fakeBackendResponse();
       prefs.setString(ShPrefKey.translations, jsonEncode(_translations));
     } catch (e) {
@@ -42,6 +43,17 @@ class LocalizationService {
     return entry[locale] ?? key;
   }
 
+  final _staticLocalizations = {
+    "ask_us_validation_invalid_email": {
+      "en": "Please enter a valid email address",
+      "ar": "يرجى إدخال بريد إلكتروني صحيح",
+    },
+
+    "ask_us_validation_invalid_mobile": {
+      "en": "Please enter a valid mobile number",
+      "ar": "يرجى إدخال رقم هاتف صحيح",
+    },
+  };
   _fakeBackendResponse() => {
     "total_amount_question": {
       "en": "What is the total worth/amount left by the deceased?",

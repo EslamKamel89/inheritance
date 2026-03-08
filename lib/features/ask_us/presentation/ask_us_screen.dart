@@ -2,9 +2,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:inheritance/core/extensions/context-extensions.dart';
+import 'package:inheritance/core/heleprs/snackbar.dart';
 import 'package:inheritance/core/router/app_routes_names.dart';
 import 'package:inheritance/core/services/localization/localization_extension.dart';
 import 'package:inheritance/core/widgets/main_scaffold.dart';
+import 'package:inheritance/features/ask_us/services/ask_us_service.dart';
 import 'package:inheritance/utils/assets/assets.dart';
 
 class AskUsScreen extends StatefulWidget {
@@ -21,6 +23,7 @@ class _AskUsScreenState extends State<AskUsScreen> {
   final mobileController = TextEditingController();
   final emailController = TextEditingController();
   final questionController = TextEditingController();
+  bool _isLoading = false;
   @override
   void dispose() {
     nameController.dispose();
@@ -33,22 +36,49 @@ class _AskUsScreenState extends State<AskUsScreen> {
   Future _submit() async {
     if (!_formKey.currentState!.validate()) return;
 
-    await showDialog(
-      context: context,
-      builder:
-          (_) => AlertDialog(
-            backgroundColor: context.primaryColor,
-            title: Text("ask_us_success_title".t(), style: TextStyle(color: Colors.white)),
-            content: Text("ask_us_success_message".t(), style: TextStyle(color: Colors.white)),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: const Text("OK", style: TextStyle(color: Colors.white)),
+    setState(() {
+      _isLoading = true;
+    });
+
+    try {
+      await AskUsService().sendQuestion(
+        name: nameController.text.trim(),
+        mobile: mobileController.text.trim(),
+        email: emailController.text.trim(),
+        question: questionController.text.trim(),
+      );
+
+      setState(() {
+        _isLoading = false;
+      });
+
+      await showDialog(
+        context: context,
+        builder:
+            (_) => AlertDialog(
+              backgroundColor: context.primaryColor,
+              title: Text("ask_us_success_title".t(), style: const TextStyle(color: Colors.white)),
+              content: Text(
+                "ask_us_success_message".t(),
+                style: const TextStyle(color: Colors.white),
               ),
-            ],
-          ),
-    );
-    Navigator.pushNamedAndRemoveUntil(context, AppRoutesNames.inheritanceScreen, (_) => false);
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: const Text("OK", style: TextStyle(color: Colors.white)),
+                ),
+              ],
+            ),
+      );
+
+      Navigator.pushNamedAndRemoveUntil(context, AppRoutesNames.inheritanceScreen, (_) => false);
+    } catch (e) {
+      setState(() {
+        _isLoading = false;
+      });
+
+      showSnackbar('Error', e.toString(), true);
+    }
   }
 
   InputDecoration _decoration(String label, {String? hint}) {
@@ -63,6 +93,20 @@ class _AskUsScreenState extends State<AskUsScreen> {
     if (value == null || value.trim().isEmpty) {
       return "ask_us_validation_required".t();
     }
+    return null;
+  }
+
+  String? _emailValidator(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return "ask_us_validation_required".t();
+    }
+
+    final emailRegex = RegExp(r'^[\w\.-]+@([\w-]+\.)+[a-zA-Z]{2,}$');
+
+    if (!emailRegex.hasMatch(value.trim())) {
+      return "ask_us_validation_invalid_email".t();
+    }
+
     return null;
   }
 
@@ -137,7 +181,7 @@ class _AskUsScreenState extends State<AskUsScreen> {
 
               TextFormField(
                 controller: emailController,
-                validator: _requiredValidator,
+                validator: _emailValidator,
                 keyboardType: TextInputType.emailAddress,
                 decoration: _decoration("ask_us_email".t()),
               ).animate().fadeIn(delay: 200.ms),
@@ -154,21 +198,23 @@ class _AskUsScreenState extends State<AskUsScreen> {
 
               const SizedBox(height: 30),
 
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: _submit,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: context.primaryColor,
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
-                  ),
-                  child: Text(
-                    "ask_us_submit".t(),
-                    style: const TextStyle(color: Colors.white, fontSize: 16),
-                  ),
-                ),
-              ).animate().fadeIn(delay: 400.ms).scale(),
+              _isLoading
+                  ? const CircularProgressIndicator()
+                  : SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: _submit,
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: context.primaryColor,
+                        padding: const EdgeInsets.symmetric(vertical: 16),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+                      ),
+                      child: Text(
+                        "ask_us_submit".t(),
+                        style: const TextStyle(color: Colors.white, fontSize: 16),
+                      ),
+                    ),
+                  ).animate().fadeIn(delay: 400.ms).scale(),
             ],
           ),
         ),
