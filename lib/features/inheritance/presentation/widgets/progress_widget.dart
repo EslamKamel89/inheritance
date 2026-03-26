@@ -118,7 +118,7 @@ class _ProgressWidgetState extends State<ProgressWidget> {
         ),
       );
     }
-    if (state.isChildren == false) {
+    if (state.isSons == false) {
       result.add(_progressItem("children_exist".t(), 'no'.t(), AssetsData.children, i++));
     }
     if (state.sonsCount != null) {

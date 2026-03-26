@@ -53,6 +53,9 @@ class LocalizationService {
       "en": "Please enter a valid mobile number",
       "ar": "يرجى إدخال رقم هاتف صحيح",
     },
+    "does_have_sons": {"en": "Does the deceased have sons", "ar": ""},
+    "does_have_daughters": {"en": "Does the deceased have daughters", "ar": ""},
+    "count_greater_than_zero": {"en": "The count must be greater than zero", "ar": ""},
   };
   _fakeBackendResponse() => {
     "total_amount_question": {

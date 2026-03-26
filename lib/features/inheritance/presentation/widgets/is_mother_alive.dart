@@ -40,7 +40,7 @@ class _IsMotherAliveWidgetState extends State<IsMotherAliveWidget> {
                 handleAnswer: (bool answer) {
                   Future.delayed(500.ms, () {
                     state.isMotherAlive = answer;
-                    controller.changeStep(InheritanceEnum.isChildren);
+                    controller.changeStep(InheritanceEnum.isSons);
                   });
                 },
                 handleBack: () {

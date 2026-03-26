@@ -8,19 +8,19 @@ import 'package:inheritance/features/inheritance/presentation/widgets/default_an
 import 'package:inheritance/features/inheritance/presentation/widgets/inheritance_yes_no_widget.dart';
 import 'package:inheritance/utils/assets/assets.dart';
 
-class IsSistersWidget extends StatefulWidget {
-  const IsSistersWidget({super.key});
+class IsSonsWidget extends StatefulWidget {
+  const IsSonsWidget({super.key});
 
   @override
-  State<IsSistersWidget> createState() => _IsSistersWidgetState();
+  State<IsSonsWidget> createState() => _IsSonsWidgetState();
 }
 
-class _IsSistersWidgetState extends State<IsSistersWidget> {
+class _IsSonsWidgetState extends State<IsSonsWidget> {
   late final InheritanceCubit controller;
   @override
   void initState() {
     controller = context.read<InheritanceCubit>();
-    controller.state.isSisters = null;
+    controller.state.isSons = null;
     super.initState();
   }
 
@@ -28,32 +28,29 @@ class _IsSistersWidgetState extends State<IsSistersWidget> {
   Widget build(BuildContext context) {
     return BlocBuilder<InheritanceCubit, InheritanceState>(
       buildWhen: (previous, current) {
-        return previous.currentStep == InheritanceEnum.isSisters ||
-            current.currentStep == InheritanceEnum.isSisters;
+        return previous.currentStep == InheritanceEnum.isSons ||
+            current.currentStep == InheritanceEnum.isSons;
       },
       builder: (context, state) {
-        return controller.state.currentStep == InheritanceEnum.isSisters
+        return controller.state.currentStep == InheritanceEnum.isSons
             ? DefaultAnimation(
               child: InheritanceYesNoWidget(
-                image: AssetsData.sisters,
-                label: "does_have_sisters".t(),
+                image: AssetsData.sons,
+                label: "does_have_sons".t(),
                 handleAnswer: (bool answer) {
                   Future.delayed(500.ms, () {
-                    state.isSisters = answer;
+                    state.isSons = answer;
                     if (answer) {
-                      controller.changeStep(InheritanceEnum.sistersCount);
+                      controller.changeStep(InheritanceEnum.sonsCount);
                     } else {
-                      controller.changeStep(InheritanceEnum.isBrothers);
+                      state.sonsCount = null;
+                      controller.changeStep(InheritanceEnum.isDaughters);
                     }
                   });
                 },
                 handleBack: () {
-                  state.isSisters = null;
-                  if (controller.state.grandChildrenInfo != null) {
-                    controller.changeStep(InheritanceEnum.grandChildrenInfo);
-                  } else {
-                    controller.changeStep(InheritanceEnum.isDaughters);
-                  }
+                  state.isSons = null;
+                  controller.changeStep(InheritanceEnum.isMotherAlive);
                 },
               ),
             )

@@ -41,12 +41,17 @@ class _SonsCountWidgetState extends State<SonsCountWidget> {
                     showSnackbar('Error', "please_enter_sons".t(), true);
                     return;
                   }
-                  state.sonsCount = int.parse(val);
-                  controller.changeStep(InheritanceEnum.daughtersCount);
+                  int count = int.parse(val);
+                  if (count <= 0) {
+                    showSnackbar('Error', "count_greater_than_zero".t(), true);
+                    return;
+                  }
+                  state.sonsCount = count;
+                  controller.changeStep(InheritanceEnum.isDaughters);
                 },
                 handleBack: () {
                   state.sonsCount = null;
-                  controller.changeStep(InheritanceEnum.isChildren);
+                  controller.changeStep(InheritanceEnum.isSons);
                 },
                 label: "how_many_sons".t(),
                 placeholder: "sons_count".t(),

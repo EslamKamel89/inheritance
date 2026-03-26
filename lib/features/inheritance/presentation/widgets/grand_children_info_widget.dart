@@ -44,7 +44,7 @@ class _GrandChildrenInfoWidgetState extends State<GrandChildrenInfoWidget> {
                   if (state.daughtersCount != null) {
                     controller.changeStep(InheritanceEnum.daughtersCount);
                   } else {
-                    controller.changeStep(InheritanceEnum.isChildren);
+                    controller.changeStep(InheritanceEnum.isSons);
                   }
                 },
                 label: "how_many_grandchildren".t(),
