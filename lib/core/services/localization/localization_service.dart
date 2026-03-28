@@ -53,9 +53,6 @@ class LocalizationService {
       "en": "Please enter a valid mobile number",
       "ar": "يرجى إدخال رقم هاتف صحيح",
     },
-    "does_have_sons": {"en": "Does the deceased have sons", "ar": ""},
-    "does_have_daughters": {"en": "Does the deceased have daughters", "ar": ""},
-    "count_greater_than_zero": {"en": "The count must be greater than zero", "ar": ""},
   };
   _fakeBackendResponse() => {
     "total_amount_question": {
@@ -404,6 +401,18 @@ class LocalizationService {
     "ask_us_success_message": {
       "en": "We will reply soon on your email or by sending you a message on your phone.",
       "ar": "سنقوم بالرد قريباً عبر بريدك الإلكتروني أو بإرسال رسالة إلى هاتفك.",
+    },
+    // new
+    "does_have_sons": {"en": "Did the person have any sons?", "ar": "هل لدى المتوفى أبناء ذكور؟"},
+
+    "does_have_daughters": {
+      "en": "Did the person have any daughters?",
+      "ar": "هل لدى المتوفى بنات؟",
+    },
+
+    "count_greater_than_zero": {
+      "en": "Please enter a number greater than zero",
+      "ar": "يرجى إدخال رقم أكبر من صفر",
     },
   };
 }

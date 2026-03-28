@@ -20,39 +20,6 @@ class ResultCubit extends Cubit<ApiResponseModel<ResultModel>> {
     try {
       emit(state.copyWith(response: ResponseEnum.loading));
       final response = await api.post(EndPoint.inherit, data: inheritanceState.toRequestBody());
-      // response['data']['GrandChildren'] = [
-      //   {
-      //     "gender": "male",
-      //     "status": "dead",
-      //     "grandChildrenMalesCount": 2,
-      //     "grandChildrenFemalesCount": 3,
-      //     "share": {"men": 187.50000000000003, "women": 262.49999999999994},
-      //     "totalShare": 450,
-      //   },
-      //   {
-      //     "gender": "male",
-      //     "status": "dead",
-      //     "grandChildrenMalesCount": 0,
-      //     "grandChildrenFemalesCount": 1,
-      //     "share": {"men": 0, "women": 450},
-      //     "totalShare": 450,
-      //   },
-      //   {
-      //     "gender": "female",
-      //     "status": "alive",
-      //     "grandChildrenMalesCount": 0,
-      //     "grandChildrenFemalesCount": 1,
-      //     "totalShare": 450,
-      //   },
-      //   {
-      //     "gender": "female",
-      //     "status": "dead",
-      //     "grandChildrenMalesCount": 2,
-      //     "grandChildrenFemalesCount": 0,
-      //     "share": {"men": 450, "women": 0},
-      //     "totalShare": 450,
-      //   },
-      // ];
       final resultModel = ResultModel.fromJson(response['data']);
       emit(pr(state.copyWith(response: ResponseEnum.success, data: resultModel), t));
     } catch (e) {
@@ -67,3 +34,40 @@ class ResultCubit extends Cubit<ApiResponseModel<ResultModel>> {
     }
   }
 }
+
+final _exampleRequest = {
+  "totalAmount": 20000.0,
+  "isWasiyat": true,
+  "wasiyatAmount": 10.0,
+  "isLoan": true,
+  "loanAmount": 10.0,
+  "isUnborn": false,
+  "yourRelation": "husband",
+  "deceasedGender": null,
+  "maleDeceasedStatus": null,
+  "femaleDeceasedStatus": null,
+  "isFatherAlive": true,
+  "isMotherAlive": true,
+  "isSons": true,
+  "isDaughters": true,
+  "sonsCount": 1,
+  "daughtersCount": 1,
+  "grandchildrenInfo": [
+    {
+      "gender": "male",
+      "status": "alive",
+      "grandChildrenMalesCount": 1,
+      "grandChildrenFemalesCount": 0,
+    },
+    {
+      "gender": "female",
+      "status": "alive",
+      "grandChildrenMalesCount": 0,
+      "grandChildrenFemalesCount": 1,
+    },
+  ],
+  "isSisters": true,
+  "sistersCount": 1,
+  "isBrothers": true,
+  "brothersCount": 1,
+};
